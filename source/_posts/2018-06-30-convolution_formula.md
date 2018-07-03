@@ -2,6 +2,7 @@
 title: CNN 公式推导
 description: 基本就是抄自知乎了 -_-
 category: 神经网络
+date: 2018-06-30
 tags: [Andrew Ng, UFLDL, CNN]
 mathjax: true
 ---
