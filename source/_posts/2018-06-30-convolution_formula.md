@@ -34,7 +34,7 @@ mathjax: true
 - 卷积层(上一层为输入层)
     在卷积层数据都是以三维数据存在的。假定输入层是 $l - 1$ 层，它的输出(对应于 $l$ 层的输入)的特征图为 $X^{l-1}(m \times m)$, 特征对应的卷积核是$K^l (n \times n)$, 给每一个输入单元加上一个偏置单元(bias term)$B^{(l)}$, 卷积层的输出矩阵为 $M^{(l)}((m - n + 1) \times (m - n + 1))$ 阶矩阵，计算公式如下
     $$
-    z_{u, v}^{(l)} = \sum_{i=-\infty}^{\infty} \sum_{j=-\infty}^{\infty} x_{i+u, j+v}^{(l-1)}\cdot k_{rot_{i, j}}\cdot \chi (i, j) + b^{(l)} \\\
+    z_{u, v}^{(l)} = \sum_{i=-\infty}^{\infty} \sum_{j=-\infty}^{\infty} x_{i+u, j+v}^{(l-1)}\cdot k_{rot \ {i, j}}\cdot \chi (i, j) + b^{(l)} \\\
     \chi(i, j) =
     \begin{cases}
     1， 0 \leq i, j \leq n \\\
@@ -58,3 +58,9 @@ mathjax: true
     $$
 
 ## 通过反向传播计算残差(error term)
+
+## 卷积层
+
+$$
+\delta_{g,h}^{(l)}=\frac{} a
+$$
