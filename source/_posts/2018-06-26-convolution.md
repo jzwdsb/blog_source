@@ -39,7 +39,7 @@ $$
   假设输入 map 为 $w \times h$ 大小，卷积核大小为 $m \times n$. 滑动步长为 s (s < m, s < n), 输出图像的尺寸应为
   
   $$
-  width = \frac {(w - m + 1)} s   \\、
+  width = \frac {(w - m + 1)} s   \\\
   height = \frac {(h - n + 1)} s  \\\
   $$
 

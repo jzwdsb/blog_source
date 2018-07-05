@@ -2,7 +2,7 @@
 title: ARM Neon 指令入门
 date: 2018-07-02
 category: Neon
-tags: [ARM, NEON]
+tags: [ARM, Neon]
 ---
 
 ## Neon 基础
@@ -70,7 +70,7 @@ uint32x4_t double_elements(uint32x4_t input)
     `uint8x16_t`, `uint16_8_t`, `uint32x4_t`, `uint64x4_t`,
     `float32x4_t`
 
-#### 结构化数据指令
+#### 结构化数据
 
 差不多每种基本数据类型都有其对应的结构化数据类型
 

@@ -109,7 +109,12 @@ prfm pldl1keep, [%1 #128]
 ### `fmla`
 
 float point fused multiply-add to accumulator.
-浮点累加
+
+$$
+a = a + b \times c
+$$
+
+
 
 ### `subs`
 
