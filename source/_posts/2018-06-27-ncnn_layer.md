@@ -2,8 +2,8 @@
 title: NCNN 源码剖析(三) Layer
 description: NCNN 中的 Layer
 date: 2018-06-27 15:00
-category: 神经网络
-tags: ncnn
+category: CNN
+tags: [CNN, ncnn]
 ---
 
 `Layer` 类在头文件中声明, 源码见末尾.

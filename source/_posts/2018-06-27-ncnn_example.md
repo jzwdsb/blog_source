@@ -2,8 +2,8 @@
 title: NCNN 源码剖析(一) Example
 description: NCNN 中的 example
 date: 2018-06-27 11:00
-category: 神经网络
-tags: ncnn
+category: CNN
+tags: [CNN, ncnn]
 mathjax: true
 ---
 

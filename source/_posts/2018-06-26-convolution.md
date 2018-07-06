@@ -1,7 +1,7 @@
 ---
 title: 卷积神经网络的原理及实现
 description: 今天的笔记，记得很是凌乱
-category: 神经网络
+category: CNN
 date: 2018-06-26
 mathjax: true
 tags: [CNN]

@@ -1,7 +1,7 @@
 ---
 title: CNN 公式推导
 description: 基本就是抄自知乎了 -_-
-category: 神经网络
+category: CNN
 date: 2018-06-30
 tags: [Andrew Ng, UFLDL, CNN]
 mathjax: true
@@ -21,7 +21,7 @@ mathjax: true
 - 有效卷积(vaild convolution)
     有效卷积的定义如下
     $$
-    z(u, v) = \sum_{i = -\infty}^{+\infty}\sum_{j=-\infty}^{+\infty} x_{i + u, j + v} \cdot k_{rot_ {i, j}} \cdot \chi(i, j) \\\
+    z(u, v) = \sum_{i = -\infty}^{+\infty}\sum_{j=-\infty}^{+\infty} x_{i + u, j + v} \cdot k_{rot_{i, j}} \cdot \chi(i, j) \\\
     \chi (i, j) =
     \begin{cases}
     1, 0 \leq i, j \leq n \\\

@@ -2,8 +2,8 @@
 title: NCNN 源码剖析(6) Convolution Layer
 description: Convolution Layer 层
 date: 2018-06-27 23:00
-category: 神经网络
-tags: [ncnn]
+category: CNN
+tags: [CNN, ncnn]
 mathjax: true
 ---
 

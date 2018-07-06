@@ -2,8 +2,8 @@
 title: NCNN 源码剖析(五) Extractor
 description: NCNN 中的 Extractor
 date: 2018-06-27 19:00
-category: 神经网络
-tags: ncnn
+category: CNN
+tags: [CNN, ncnn]
 ---
 
 `Extractor` 类声明在 `net.h` 中
