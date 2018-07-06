@@ -39,3 +39,5 @@ asm volatile(
 ## bias
 
 这里 `bias` 的加入实在代码中循环开始前使用 `Mat::fill` 将 `output` 初始化为 `bias` 实现。
+
+现在优化为在卷积计算过程后中使用 Neon 向量运算指令加到 `output` 中，理论上运算速度会快一点。
