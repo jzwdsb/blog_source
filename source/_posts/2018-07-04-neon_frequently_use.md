@@ -106,15 +106,7 @@ prfm pldl1keep, [%1 #128]
 
 ## 运算指令
 
-### `fmla`
 
-float point fused multiply-add to accumulator.
-
-$$
-a = a + b \times c
-$$
-
-
 
 ### `subs`
 
@@ -126,9 +118,17 @@ $$
 
 ## 向量指令
 
+### `fmla`
+
+float point fused multiply-add to accumulator.
+
+$$
+a = a + b \times c
+$$
+
 ### `vmla`
 
-向量累加
+第一个操作数向量与第二个操作数向量对应相乘，目的寄存器与结果向量对应相加。
 
 ### `vand`
 
@@ -144,10 +144,14 @@ $$
 
 ### `trn1`
 
-转置向量
+与 `trn2` 转置向量
 
 ## 跳转指令
 
 ### `bne`
 
-当两个操作数不相等时做跳转
+当状态码zero 不为 0 时做跳转
+
+### `beq`
+
+当 状态码 zero 为 0 时跳转
