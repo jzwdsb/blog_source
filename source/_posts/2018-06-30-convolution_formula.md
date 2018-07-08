@@ -60,7 +60,3 @@ mathjax: true
 ## 通过反向传播计算残差(error term)
 
 ## 卷积层
-
-$$
-\delta_{g,h}^{(l)}=\frac{} a
-$$
