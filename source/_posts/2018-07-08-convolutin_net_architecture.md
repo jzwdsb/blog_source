@@ -18,10 +18,10 @@ mathjax: true
   E =
     \begin{cases}
     E, if \\ E > threhold \\\
-    E \cdot scope, if \\ E < threhold
+    E \cdot factor, if \\ E < threhold
     \end{cases}
   $$
-  $max(0, x)$ 即当 $threhold,scope$ 为 0 的情况
+  $max(0, x)$ 即当 $threhold,factor$ 为 0 的情况
 - Pool Layer
   池化层会对其输入进行下采样，降低输入的维度，防止过拟合
 - Fully Connection Layer
