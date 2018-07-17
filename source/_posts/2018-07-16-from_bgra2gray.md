@@ -35,7 +35,7 @@ $$
 ## 实现
 
 具体的实现需要一些 trick, 比如使用移位运算代替浮点运算，使用向量运算指令或者 intrinsics 防止编译器做负优化. (~~写这种代码真是心累~~)
-实际上这么常用的功能一定有人已经做过，找到了一篇[博文](https://www.tuicool.com/articles/mYnaMb)(12年的，不知道有没有过时)，当然 [github]上面也有几乎完全符合要求的[开源项目](https://github.com/carlj/NEON-ASM-BGRA-to-Grayscale-conversion)(ヾ(✿ﾟ▽ﾟ)ノ), 整理下方法，然后 copy and paste.
+实际上这么常用的功能一定有人已经做过，找到了一篇[博文](https://www.tuicool.com/articles/mYnaMb)(12年的，不知道有没有过时)，当然 github 上面也有几乎完全符合要求的[开源项目](https://github.com/carlj/NEON-ASM-BGRA-to-Grayscale-conversion)(ヾ(✿ﾟ▽ﾟ)ノ), 整理下方法，然后 copy and paste.
 
 ### 实现颜色空间转换的几种途径
 
