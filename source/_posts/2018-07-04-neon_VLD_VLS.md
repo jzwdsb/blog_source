@@ -11,7 +11,7 @@ date: 2018-07-04
 根据 list 参数的不同可以将 VLDn 分为一下三种
 
 - single n - element to one lang
-    读取一个 n - element 结构体到寄存器的单个通道中
+    读取一个 n - element 结构体到寄存器的单个通道中
 - single n - element to all lang
     读取 n - element 结构体到寄存器的所有通道中
 - multiple n - element structures
@@ -65,7 +65,7 @@ VLDMmode{cond} Rn{!} Registers
   - IA
     表示每次传输完成后地址向高地址增长。默认模式并且可以忽略
   - DB
-    表示每次传输完成后地址向低地址增长。
+    表示每次传输完成后地址向低地址增长。
   - EA
     Empty Ascending Operation.(~~这什么意思~~), 在传输时与 DB 相同。
   - FD
@@ -77,7 +77,7 @@ VLDMmode{cond} Rn{!} Registers
 - !
   可选。表示基地址更新后必须写会 Rn, 如果没有 ! 选项，那么模式必须是 IA 模式
 - Registers
-  在 {} 中的寄存器列表。D 寄存器和 Q 寄存器不能混用。不能超过 16 个 D 寄存器或者 8 个 Q 寄存器。
+  在 {} 中的寄存器列表。D 寄存器和 Q 寄存器不能混用。不能超过 16 个 D 寄存器或者 8 个 Q 寄存器。
 
 ## VSTn
 

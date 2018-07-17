@@ -125,10 +125,10 @@ float point fused multiply-add to accumulator.
 $$
 a = a + b \times c
 $$
-
+
 ### `vmla`
 
-第一个操作数向量与第二个操作数向量对应相乘，目的寄存器与结果向量对应相加。
+第一个操作数向量与第二个操作数向量对应相乘，目的寄存器与结果向量对应相加。
 
 ### `vand`
 
