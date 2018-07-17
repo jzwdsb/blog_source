@@ -1,5 +1,5 @@
 ---
-title: vscode 的输入 non-printable 字符的 bug
+title: vscode 输入 non-printable 字符的 bug
 date: 2018-07-17 18:00
 category: vscode
 tags: [vscode, bug]
