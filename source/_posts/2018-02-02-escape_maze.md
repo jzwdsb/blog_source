@@ -1,9 +1,10 @@
 ---
 layout: post
-category: algorithms
+category: algorithm
 date: 2018-02-02
 title: 模拟逃出迷宫
 description: 使用去重优化
+tags: [algorithm]
 ---
 
 ```

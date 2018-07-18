@@ -1,7 +1,7 @@
 ---
 title: 矩阵快速幂
 date: 2018-05-22 18:53:42
-category: 算法
+category: algorithm
 mathjax: true
 description: 原理和实现
 ---

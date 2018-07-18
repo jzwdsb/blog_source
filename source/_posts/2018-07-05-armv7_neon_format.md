@@ -1,7 +1,7 @@
 ---
 title: ARMv7-A 下的 Neon 指令
 date: 2018-07-05
-category: Neon
+category: ARM
 tags: [ARM, Neon, Assembly]
 mathjax: true
 urlname: neon_general_format

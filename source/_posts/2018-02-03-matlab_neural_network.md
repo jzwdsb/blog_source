@@ -4,6 +4,7 @@ category: matlab
 date: 2018-02-03
 title: matlab与神经网络
 description: matlab中神经网络工具包的使用
+tags: [matlab, 神经网络]
 ---
 
 ## 单层感知器神经网络

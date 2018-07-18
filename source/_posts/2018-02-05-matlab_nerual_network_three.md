@@ -4,6 +4,7 @@ category: matlab
 date: 2018-02-05
 title: matlab 与神经网络 (3)
 description: 竞争型神经网络
+tags: [matlab, 神经网络]
 ---
 
 ## 定义及特性

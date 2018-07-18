@@ -1,7 +1,7 @@
 ---
 title: ARM Neon 编程(二) 访存指令详解
 description: VLD, VST
-category: Neon
+category: ARM
 tags: [ARM, Neon]
 date: 2018-07-04
 ---

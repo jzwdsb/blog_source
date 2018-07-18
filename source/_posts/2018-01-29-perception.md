@@ -5,6 +5,7 @@ date: 2018-01-29
 title: 感知机
 description: 定义及算法
 mathjax: true
+tags: [机器学习, 感知机]
 ---
 
 　　感知机(perceptron) 是二类分类的线性分类模型，输入为实例的特征向量，输出为示例的类别，取 -1 和 +1 二值．

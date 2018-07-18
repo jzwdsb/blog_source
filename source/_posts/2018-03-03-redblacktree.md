@@ -438,7 +438,7 @@ void RBTree<Key, Value>::fix_up(RBTree::node_pointer node)
     }
     ```
 
-完整代码见 [github](https://github.com/jzwdsb/algorithms/blob/master/RBTree.h)
+完整代码见 [github](https://github.com/jzwdsb/algorithm/blob/master/RBTree.h)
 
 <!--
 > 我所有的自负都来自我的自卑.<br>

@@ -1,9 +1,10 @@
 ---
 layout: post
-category: algorithms
+category: algorithm
 date: 2018-02-27
 title: 连通块问题
 description: DFS, BFS
+tags: [algorithm]
 ---
 
 　　连通块问题的考察形式非常多，直观的比如区域中有多少个连通块，最大的连通块的大小，不太直观的形式有符号识别，利用不同符号的中洞的个数不同识别，也是求连通块的问题，例如 [UVa 1103](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3544).

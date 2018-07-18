@@ -1,7 +1,7 @@
 ---
 title: Linux 下使用 ICMP 套接字
 date: 2018-05-24
-category: socket
+tags: [socket, linux]
 ---
 
 　　在 Linux 下使用如下方法创建 ICMP 套接字

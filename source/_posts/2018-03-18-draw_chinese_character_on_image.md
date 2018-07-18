@@ -21,7 +21,6 @@ fc-list :lang=zh-cn
 　　初始化绘制字体时使用的字体对象，将刚才字体文件路径作为 `ImageFont.truetype` 的参数，第二个参数是字体的大小．<br>
 　　初始化绘制时使用的 `ImageDraw.Draw` 对象，参数为绘制对象，使用之前载入的 `Image` 对象.<br>
 　　使用 `ImageDraw` 对象的 `text` 方法绘制文字，参数为绘制的文字的左上角坐标，绘制字符串，字体，填充颜色.
-　
 
 ```python3
 import cv2

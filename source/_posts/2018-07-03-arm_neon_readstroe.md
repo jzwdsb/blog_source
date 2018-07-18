@@ -2,7 +2,7 @@
 title: ARM Neon 编程(一)：读取与存储
 description: Neon 中的 load 与 store 指令
 date: 2018-07-03
-category: Neon
+category: ARM
 tags: [ARM, Neon]
 ---
 

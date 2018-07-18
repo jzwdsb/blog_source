@@ -4,6 +4,7 @@ category: Python
 date: 2018-03-09
 title: face_recogition 初探
 description: 尝试制作一个小玩具
+tags: [Python]
 ---
 
 　　这次要做一个人脸支付系统(其实主要是识别出人物的身份以便从数据库中查找数据)，尝试使用 python3 + [face_recognition](https://github.com/ageitgey/face_recognition)  

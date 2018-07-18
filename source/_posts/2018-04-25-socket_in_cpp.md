@@ -2,6 +2,7 @@
 title: Linux 下的套接字编程
 date: 2018-04-25 21:02:31
 category: Linux
+tags: [socket]
 ---
 
 ## C/S 模型

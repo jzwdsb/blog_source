@@ -2,7 +2,7 @@
 title: ARM Neon 常用指令
 date: 2018-07-04 15:00
 description: 记下编程中常用的指令
-category: Neon
+category: ARM
 tags: [ARM, Neon]
 mathjax: true
 ---

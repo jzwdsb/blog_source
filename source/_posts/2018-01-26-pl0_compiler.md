@@ -3,7 +3,7 @@ layout: post
 title: pl0 compiler
 date: 2018-01-26
 description: structure and expand feature
-category: toy
+category: compiler
 ---
 
 The code can be found in this [repositoy](https://github.com/jzwdsb/pl0_compiler)

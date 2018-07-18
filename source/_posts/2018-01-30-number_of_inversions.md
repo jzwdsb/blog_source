@@ -1,9 +1,10 @@
 ---
 layout: post
-category: algorithms
+category: algorithm
 date: 2018-01-30
 title: 逆序数
 description: c++实现
+tags: [algorithm]
 ---
 
 > 　　在数列 $$ A=\{a_0, a_1, ..., a_{n-1} \} $$中，如果一组数(i, j)满足$$a_i > a_j$$ 且 i < j,

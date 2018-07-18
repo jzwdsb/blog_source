@@ -4,6 +4,7 @@ category: matlab
 date: 2018-02-04
 title: matlab与神经网络 (2)
 description: 径向基网络
+tags: [matlab, 神经网络]
 ---
 
 ## 定义及特点

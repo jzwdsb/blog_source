@@ -4,6 +4,7 @@ category: matlab
 date: 2018-02-14
 title: 数模随笔
 description: 这次数学建模用到的方法
+tags: [matlab]
 ---
 
 　　胡乱建模大赛忙完了，四天的努力也造出了一篇学术垃圾，记下中间用到的方法

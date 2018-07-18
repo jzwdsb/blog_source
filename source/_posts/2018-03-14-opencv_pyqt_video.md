@@ -4,6 +4,7 @@ category: Python
 date: 2018-03-14
 title: 在 PyQt5 中使用 opencv 播放视频流
 description: 问题在于图像格式
+tags: [Python, Opencv]
 ---
 
 　　现在做的应用需要结合 opencv 和 PyQt5, 但是两个库之间并没有一个明确的互相读取和调用的接口.<br>

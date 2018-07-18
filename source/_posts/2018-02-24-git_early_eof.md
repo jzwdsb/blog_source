@@ -3,6 +3,7 @@ layout: post
 category: git
 date: 2018-02-24
 title: git clone 时遇到 early eof 时的解决办法
+tags: [git, bug]
 ---
 
 　　git clone 自己一个 repository 时速度不仅奇慢而且到中间常出现如下错误．

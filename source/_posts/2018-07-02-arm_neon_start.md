@@ -1,7 +1,7 @@
 ---
 title: ARM Neon 指令入门
 date: 2018-07-02
-category: Neon
+category: ARM
 tags: [ARM, Neon]
 ---
 

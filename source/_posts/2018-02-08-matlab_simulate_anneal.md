@@ -4,6 +4,7 @@ category: matlab
 date: 2018-02-08
 title: matlab 随笔
 description: 模拟退火算法
+tags: [matlab, 神经网络]
 ---
 
 ## 题目描述

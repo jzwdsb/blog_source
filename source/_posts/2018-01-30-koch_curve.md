@@ -3,7 +3,8 @@ layout: post
 title: 科赫曲线
 date: 2018-01-30
 description: 简单的C++语言实现
-category: algorithms
+category: algorithm
+tags: [algorithm]
 ---
 
 > 　　请编写一个程序，输入整数n，输出科赫曲线的定点坐标，该科赫曲线由深度为n的递归调用画出．

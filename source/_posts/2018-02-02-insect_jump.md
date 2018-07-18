@@ -1,9 +1,10 @@
 ---
 layout: post
-category: algorithms
+category: algorithm
 date: 2018-02-02
 title: 一个图论问题
 description: 广搜和去重
+tags: [algorithm]
 ---
 
 >　　如图所示，９个盘子排成圆圈，八个盘子中有蚱蜢，一个空盘，每只蚱蜢可以跳到相邻的空盘中，
