@@ -1,7 +1,6 @@
 ---
 title: stride 参数
 date: 2018-07-17 20:00
-category: 图像处理
 tags: [图像处理]
 mathjax: true
 ---

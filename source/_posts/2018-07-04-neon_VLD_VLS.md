@@ -2,18 +2,18 @@
 title: ARM Neon 编程(二) 访存指令详解
 description: VLD, VST
 category: ARM
-tags: [ARM, Neon]
+tags: [Neon]
 date: 2018-07-04
 ---
 
 ## VLDn
 
-根据 list 参数的不同可以将 VLDn 分为一下三种
+根据 list 参数的不同可以将 VLDn 分为一下三种
 
 - single n - element to one lang
     读取一个 n - element 结构体到寄存器的单个通道中
 - single n - element to all lang
-    读取 n - element 结构体到寄存器的所有通道中
+    读取 n - element 结构体到寄存器的所有通道中
 - multiple n - element structures
     读取 n - element 结构体到寄存器。n 指定分选模式
 
@@ -30,26 +30,26 @@ VLDn{cond}.datatype list,  [Rn{@aligin}]{!}
 - datatype
     单个元素的 bits 数，通常为 8, 16, 32
 - list
-    包括在 {} 中的高级 SIMD 寄存器列表
+    包括在 {} 中的高级 SIMD 寄存器列表
 - Rn
     通用寄存器，包含基地址，Rn 不能为 PC
 - align
     指定可选的对齐，通常为 16 的倍数。
 - !
-    如果存在，那么 Rn 寄存器将在操作后更新(Rn + 指令读取的字节数)
+    如果存在，那么 Rn 寄存器将在操作后更新(Rn + 指令读取的字节数)
 - Rm
-    通用寄存器，包含从基地址的偏移量，如果 Rm 存在，当指令访问内存结束后，Rn 更新(Rn=Rn + Rm), Rm 不能为 PC 或 SP。
+    通用寄存器，包含从基地址的偏移量，如果 Rm 存在，当指令访问内存结束后，Rn 更新(Rn=Rn + Rm), Rm 不能为 PC 或 SP。
 
 ### list 参数
 
-- 读取一个结构，单通道
+- 读取一个结构，单通道
   - {Dd[x], D(d+1){x}}
   - {Dd[x], D(d+2){x}, D(d+4){x}}
-- 读取一个结构，全通道
+- 读取一个结构，全通道
   - {Dd[], D(d+1)[]}
   - {Dd[], D(d+2)[],D(d+4)[]}
 - 读取多个结构，支持通道分选
-  由 n, datatype 共同决定通道分选模式
+  由 n, datatype 共同决定通道分选模式
   - {Dd, D(d+1)}
   - {Dd, D(d+2)}
 
@@ -63,9 +63,9 @@ VLDMmode{cond} Rn{!} Registers
 
 - mode
   - IA
-    表示每次传输完成后地址向高地址增长。默认模式并且可以忽略
+    表示每次传输完成后地址向高地址增长。默认模式并且可以忽略
   - DB
-    表示每次传输完成后地址向低地址增长。
+    表示每次传输完成后地址向低地址增长。
   - EA
     Empty Ascending Operation.(~~这什么意思~~), 在传输时与 DB 相同。
   - FD
@@ -73,15 +73,15 @@ VLDMmode{cond} Rn{!} Registers
 - cond
   可选的条件码。
 - Rn
-  保存传输时基地址的通用寄存器
+  保存传输时基地址的通用寄存器
 - !
-  可选。表示基地址更新后必须写会 Rn, 如果没有 ! 选项，那么模式必须是 IA 模式
+  可选。表示基地址更新后必须写会 Rn, 如果没有 ! 选项，那么模式必须是 IA 模式
 - Registers
-  在 {} 中的寄存器列表。D 寄存器和 Q 寄存器不能混用。不能超过 16 个 D 寄存器或者 8 个 Q 寄存器。
+  在 {} 中的寄存器列表。D 寄存器和 Q 寄存器不能混用。不能超过 16 个 D 寄存器或者 8 个 Q 寄存器。
 
 ## VSTn
 
-### 语法格式
+### 语法格式
 
 ```asm
 VSTn{cond}.datatype list [Rn{@align}] {!}
@@ -99,7 +99,7 @@ VSTn{cond}.datatype list [Rn{@align}]，Rm
 - Rn
   保存基地址的通用寄存器，不能是 PC
 - align
-  可选，表示指针对齐
+  可选，表示指针对齐
 - ！
   可选，Rn 将在存储生效后更新。(Rn + 指令传输的内存数)
 - Rm
@@ -126,7 +126,7 @@ VSTR{cond}{.64} Dd, [Rn [, #offset]]
   - 必须在 assembly 时期就可以求值
   - 必须是 4 的倍数
   - 在 [-1020, 1020] 中间
-  在传输时基地址会加上该偏移量
+  在传输时基地址会加上该偏移量
 
-VSTR 指令用于向内存保存扩展寄存器的内容
+VSTR 指令用于向内存保存扩展寄存器的内容
 一次传输两字。

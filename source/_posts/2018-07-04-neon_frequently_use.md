@@ -3,7 +3,7 @@ title: ARM Neon 常用指令
 date: 2018-07-04 15:00
 description: 记下编程中常用的指令
 category: ARM
-tags: [ARM, Neon]
+tags: [Neon]
 mathjax: true
 ---
 
@@ -80,7 +80,7 @@ PRFM (prfop|#imm5), [Xn|SP, (Wm|Xm){, extend {amount}}]
 - `extend`
   extend/shift specifer 的索引。默认为 `LSL`, 当 `amount` 忽略时，此项默认为 `LSL`。可以是 `UXTW`, `LSL`, `SXTW`, `SXTX`.
 - `amount`
-  指数移位量(index shift amount),只有当 `extend` 不是 `LSL` 时可选。可以是 #0, #3.
+  指数移位量(index shift amount),只有当 `extend` 不是 `LSL` 时可选。可以是 #0, #3.
 
 #### 示例
 
@@ -92,19 +92,19 @@ prfm pldl1keep, [%1 #128]
 
 读取单个向量到寄存器
 
-### `st1`
+### `st1`
 
-从 1 到 4 个寄存器向内存存储单个向量。
+从 1 到 4 个寄存器向内存存储单个向量。
 
-### `pld`
+### `pld`
 
-预取数据，允许处理器向内存管理系统发射信号，使得数据或指令看起来在近期会使用.
+预取数据，允许处理器向内存管理系统发射信号，使得数据或指令看起来在近期会使用.
 
 ### vld
 
 已记
 
-## 运算指令
+## 运算指令
 
 
 
@@ -114,7 +114,7 @@ prfm pldl1keep, [%1 #128]
 
 ### `add`
 
-加法运算
+加法运算
 
 ## 向量指令
 
@@ -128,11 +128,11 @@ $$
 
 ### `vmla`
 
-第一个操作数向量与第二个操作数向量对应相乘，目的寄存器与结果向量对应相加。
+第一个操作数向量与第二个操作数向量对应相乘，目的寄存器与结果向量对应相加。
 
 ### `vand`
 
-向量按 bit 做与运算
+向量按 bit 做与运算
 
 ### `ext`
 
@@ -150,7 +150,7 @@ $$
 
 ### `bne`
 
-当状态码zero 不为 0 时做跳转
+当状态码zero 不为 0 时做跳转
 
 ### `beq`
 
