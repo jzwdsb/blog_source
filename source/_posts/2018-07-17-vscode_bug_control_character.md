@@ -14,3 +14,10 @@ tags: [vscode, bug]
 ```
 
 这行配置指示编辑器渲染控制字符，这样就可以看到 `non-printable character`, 将其删除即可.
+
+或者安装一个 `Remove backspace control character` 插件，在用户首选项中设置以下内容
+
+```json
+"editor.formatOnSave": true,
+"editor.formatOnType": true
+```
