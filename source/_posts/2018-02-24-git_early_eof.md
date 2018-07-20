@@ -22,8 +22,8 @@ git config --global http.postbuffer 24288000
 git config --global https.postbuffer 24288000
 ```
 
-　　以上是针对 git 的第一条错误提示搜索的解决办法，同样的仅针对 early eof 错误而言，也有解决办法．<br>
-　　从 remote host 上下载 repository 时服务器端会默认先压缩目标文件再进行传输，客户端再解压．压缩指数范围为 [-1, 9], -1 以 zlib 为默认压缩库, 0 不压缩, 1 ... 9 为压缩速度与最终文件大小的权衡，数字越大，压缩越慢，但最终获得的目标文件也就越小.<br>
+　　以上是针对 git 的第一条错误提示搜索的解决办法，同样的仅针对 early eof 错误而言，也有解决办法．
+　　从 remote host 上下载 repository 时服务器端会默认先压缩目标文件再进行传输，客户端再解压．压缩指数范围为 [-1, 9], -1 以 zlib 为默认压缩库, 0 不压缩, 1 ... 9 为压缩速度与最终文件大小的权衡，数字越大，压缩越慢，但最终获得的目标文件也就越小.
 　　[stackoverflow](https://stackoverflow.com/questions/2505644/git-checking-out-problem-fatal-early-eofs)上有人测试发现关掉压缩功能或者设置为 -1 能够避免出现 early eof.
 
 ```shell

@@ -30,7 +30,7 @@ two interface.
 - nextToken
 
 　　The getToken method should get one token from the tokenstream, in order to consume the tokens
-which belongs to the current nonterminal symbol.<br>
+which belongs to the current nonterminal symbol.
 　　The nextToken method should allow the parser to look ahead one token in order to select the
 different rlues to move on.
 
@@ -45,7 +45,7 @@ Stream.
 ### Parser
 
 　　The parser handles the core steps of the compile process, in this simple pl0 compiler,
-we mainly used recursive descent method.<br>
+we mainly used recursive descent method.
 　　For each nonterminal symbol, we need to write function which handles
 the parsing process for corresponding nonterminal symbol.
 
@@ -67,7 +67,7 @@ the parsing process for corresponding nonterminal symbol.
 　　The start symbol of pl0 language according to it's EBNF form is program, follow with
 a terminal symbol '.', which indicate the end of the parsing process.
 
-　　It calls the block and judge the next symbol is '.' or not.<br>
+　　It calls the block and judge the next symbol is '.' or not.
 　　The block function will consume the tokens which belong to the current block.
 
 　　Then next thing is the block will call other function according to the EBNF

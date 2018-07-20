@@ -2,7 +2,7 @@
 
 <p align="center">Copyright © 2017 «<a href="https://github.com/theme-next/hexo-theme-next">NexT</a>».</p>
 
-<p align="center">Detail attribution information for «NexT»<br>
+<p align="center">Detail attribution information for «NexT»
               is contained in the '<a href="docs/AUTHORS.md">docs/AUTHORS.md</a>' file.</p>
 
   This program is free software; you can redistribute it and/or modify

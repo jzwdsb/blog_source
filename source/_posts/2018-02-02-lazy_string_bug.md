@@ -1,6 +1,6 @@
 ---
 layout: post
-category: GCC
+category: bug
 date: 2018-02-02
 title: c++ 中 std::string 按值传递和按引用 bug
 description: 未找到解决方案
@@ -23,7 +23,7 @@ breadth_search(layer[layer_start]);
 
 　　运行时，在 breadth_search 中设置断点 gdb 查看参数变量 node 出现如下错误
 
-```
+```plain
 <error reading variable: Cannot create a lazy string with address 0x0, and a non-zero length.>{static npos = 0xffffffffffffffff, _M_dataplus = {<std::allocator<char>> = {<__gnu_cxx::new_allocator<char>> = {<No data fields>}, <No data fields>}, _M_p = 0x0}, _M_string_length = 0x60d2b0, {_M_local_buf = "\000\000\000\000\000\000\000\000\060\375\312\000\000\000\000", _M_allocated_capacity = 0x0}}
 ```
 
@@ -42,4 +42,4 @@ breadth_search(node);
 static void breadth_search(std::string node);
 ```
 
-　　可见问题是无法创建一个 vector<string> 中的元素的引用或者 Copy on write 共享对象，该字符串对象必须至少复制一次，应该可以禁用 c++11 ABI 避免(未尝试)，最简单的还是将函数声明改为按值传递．
+　　可见问题是无法创建一个 `vector<string>` 中的元素的引用或者 Copy on write 共享对象，该字符串对象必须至少复制一次，应该可以禁用 c++11 ABI 避免(未尝试)，最简单的还是将函数声明改为按值传递．

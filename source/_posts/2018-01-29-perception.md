@@ -56,7 +56,7 @@ $$ \underset{w, b}{min}L(w, b) = - \sum_{x_i \in M} y_i(w \cdot x_i + b) \tag{3}
 
 其中 M 为误分类点的集合
 
-　　感知机学习算法是误分类驱动的，具体采用随机梯度下降法(stochastic gradient descent).首先任意选取一个超平面$w_0, b_0$, 然后用梯度下降法不断的极小化目标函数．<br>
+　　感知机学习算法是误分类驱动的，具体采用随机梯度下降法(stochastic gradient descent).首先任意选取一个超平面$w_0, b_0$, 然后用梯度下降法不断的极小化目标函数．
 　　假设误分类点集合M是固定的，那么损失函数 L(w, b)的梯度由
 $$ \nabla_wL(w, b) = - \sum_{x_i \in M} y_ix_i \tag{4}$$
 $$ \nabla_bL(w, b) = - \sum_{x_i \in M} y_i \tag{5}$$

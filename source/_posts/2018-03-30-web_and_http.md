@@ -8,17 +8,17 @@ description: web 和 http
 
 ## 概况
 
-　　Web 的应用层协议是**超文本传输协议**(HyperText Transfer Protocol, HTTP).<br>
+　　Web 的应用层协议是**超文本传输协议**(HyperText Transfer Protocol, HTTP).
 　　HTTP 由两个程序实现：一个客户程序和一个服务器程序．客户程序和服务器程序运行在不同的端系统中，通过交换 HTTP 报文进行会话.通常 Web 浏览器实现了 HTTP 的客户端，Web 服务器实现了 HTTP 的服务器端.
 
-　　HTTP 使用 TCP 作为它的支撑运输协议．HTTP 客户端首先发起一个与服务器的 TCP 连接，一旦链接建立，该浏览器和服务器进程就可以通过套接字接口访问 TCP.<br>
+　　HTTP 使用 TCP 作为它的支撑运输协议．HTTP 客户端首先发起一个与服务器的 TCP 连接，一旦链接建立，该浏览器和服务器进程就可以通过套接字接口访问 TCP.
 　　客户向他的套接字接口发送 HTTP 请求报文和从他的套接字接口接收 HTTP 响应报文，类似的，服务器从他的套接字接口接收 HTTP 请求报文并发送响应报文.
 
 　　服务器想客户发送被请求的文件，而不存储任何关于客户的状态信息．所以说 HTTP 是一个**无状态协议**(Stateless protocol)．
 
 ## 非持续连接和持续连接
 
-　　非持续连接指的是每个请求/响应对经一个单独的 TCP 连接发送．<br>
+　　非持续连接指的是每个请求/响应对经一个单独的 TCP 连接发送．
 　　持续连接指的是所有的请求及其相应经相同的 TCP 连接发送，HTTP 默认是使用持续连接的.
 
 ## HTTP 报文格式
@@ -30,7 +30,7 @@ description: web 和 http
     报文的第一行就是起始行，在请求报文中用来说明要做什么，在响应报文中说明出现了什么情况
 * 首部字段(header line)
 
-    起始行后面有零个或多个首部字段，每个首部字段都包含一个名字和一个值，为了便于解析，两者之间用冒号(:) 分割．<br>
+    起始行后面有零个或多个首部字段，每个首部字段都包含一个名字和一个值，为了便于解析，两者之间用冒号(:) 分割．
     首部之间用 CRLF 分割，每个首部字段之后都有一个 CRLF 表示结束．首部的结束是一个 CRLF 结束，也就是说当遇到连续两个 CRLF 表示首部已结束.
 * 主体(entity body)
 
@@ -81,7 +81,7 @@ Content-Type: text/html
 
 ## Cookie
 
-　　HTTP 服务器是无状态的，然而一个 Web 服务器通常希望能够识别用户．为此，HTTP 使用了 cookies.<br>
+　　HTTP 服务器是无状态的，然而一个 Web 服务器通常希望能够识别用户．为此，HTTP 使用了 cookies.
 　　cookies 有 4 个组件:
 1. HTTP 响应报文中的一个 cookies 首部行
 2. HTTP 请求报文中的一个 cookies 首部行
@@ -90,7 +90,7 @@ Content-Type: text/html
 
 ## Web 缓存
 
-　　Web 缓存器(Web cache)也叫代理服务器(proxy server)，它是能够代表初始 Web 服务器来满足 HTTP 请求的网络实体.<br>
+　　Web 缓存器(Web cache)也叫代理服务器(proxy server)，它是能够代表初始 Web 服务器来满足 HTTP 请求的网络实体.
 　　当配置用户的浏览器对某个对象的请求首先定向到该 Web 服务器时，将会发生如下情况
 
 1. 浏览器建立一个到 Web 缓存器的 TCP 连接，并向 Web 缓存器中的对象发送一个 HTTP 请求.

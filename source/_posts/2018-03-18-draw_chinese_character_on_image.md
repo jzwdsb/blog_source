@@ -17,9 +17,9 @@ fc-list :lang=zh-cn
 　　从中选择一个字体，复制字体文件 ttc 的完整路径(也可以将其或自己的 ttf, ttc 字体文件直接拷贝到工作目录)，等下会用到.
 
 　　以下就是使用 PIL 的 Image, ImageDraw, ImageFont 在 opencv 得到的图像中添加汉字了.
-　　首先还是将 opencv 的图像格式转换为常用的 RGB 格式，使用 `Image.fromarray` 载入图像.<br>
-　　初始化绘制字体时使用的字体对象，将刚才字体文件路径作为 `ImageFont.truetype` 的参数，第二个参数是字体的大小．<br>
-　　初始化绘制时使用的 `ImageDraw.Draw` 对象，参数为绘制对象，使用之前载入的 `Image` 对象.<br>
+　　首先还是将 opencv 的图像格式转换为常用的 RGB 格式，使用 `Image.fromarray` 载入图像.
+　　初始化绘制字体时使用的字体对象，将刚才字体文件路径作为 `ImageFont.truetype` 的参数，第二个参数是字体的大小．
+　　初始化绘制时使用的 `ImageDraw.Draw` 对象，参数为绘制对象，使用之前载入的 `Image` 对象.
 　　使用 `ImageDraw` 对象的 `text` 方法绘制文字，参数为绘制的文字的左上角坐标，绘制字符串，字体，填充颜色.
 
 ```python3
