@@ -76,10 +76,10 @@ Mat bias_data;
 
 ## `fordward` 前向传播接口实现
 
-- 如果输入 `blob` 和卷积核大小为 $1 \times 1$ 为一维向量，则使用新创建內积层并将计算交给內积层，之后返回计算结果
-- 根据输入参数将输入 `blob`  `border` 扩展
-- 创建一个和卷积核大小相同的矩阵用来表示之后卷积运算时与卷积核 `element wise` 相乘求和的输入 `blob` 中的元素的偏移量。这样能够方便计算。
-- 计算的同时将结果输出在 `top_blob` 中。
+- 如果输入 `blob` 和卷积核大小为 $1 \times 1$ 为一维向量，则使用新创建內积层并将计算交给內积层，之后返回计算结果
+- 根据输入参数将输入 `blob`  `border` 扩展
+- 创建一个和卷积核大小相同的矩阵用来表示之后卷积运算时与卷积核 `element wise` 相乘求和的输入 `blob` 中的元素的偏移量。这样能够方便计算。
+- 计算的同时将结果输出在 `top_blob` 中。
 
 ## 源码
 
@@ -265,5 +265,4 @@ int Convolution::forward(const Mat& bottom_blob, Mat& top_blob) const
 
     return 0;
 }
-
 ```

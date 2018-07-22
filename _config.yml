@@ -38,6 +38,12 @@ highlight:
 # Category & Tag
 default_category: 杂记
 
+#search
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
 
 # Server
 ## Hexo uses Connect as a server
