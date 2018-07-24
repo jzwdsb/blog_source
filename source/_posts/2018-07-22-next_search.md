@@ -2,6 +2,7 @@
 title: hexo next 主题添加站内搜索
 category: 杂记
 tags: [hexo, next]
+date: 2018-07-22 17:00
 ---
 
 ## Next 主题添加站内搜索功能

@@ -1,6 +1,4 @@
 ---
-layout: post
-category: bug
 date: 2018-02-02
 title: c++ 中 std::string 按值传递和按引用 bug
 description: 未找到解决方案

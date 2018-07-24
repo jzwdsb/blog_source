@@ -1,7 +1,7 @@
 ---
 title: hexo generate 报 `Cannot set property 'lastIndex' of undefined` 错误及其解决方法
 date: 2018-06-30
-category: bug
+tags: [hexos, bug]
 ---
 
   今天使用 hexo 生成 html 文件时报 `Cannot set property 'lastIndex' of undefined` error。 这个问题在 github 上已经有人提出了 [Issue](https://github.com/hexojs/hexo/issues/3128)
