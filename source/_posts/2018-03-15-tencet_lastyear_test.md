@@ -1,6 +1,6 @@
 ---
 layout: post
-category: 杂记
+category: algorithm
 date: 2018-03-15
 title: 腾讯 2017 年暑期实习生笔试题目
 description: 三道算法题

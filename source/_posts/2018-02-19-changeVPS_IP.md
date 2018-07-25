@@ -1,6 +1,4 @@
 ---
-layout: post
-category: 杂记
 date: 2018-02-19
 title: 免费更换 bandwagon VPS IP 的方法
 ---
