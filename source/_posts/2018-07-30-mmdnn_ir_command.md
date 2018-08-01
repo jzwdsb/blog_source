@@ -2,6 +2,7 @@
 title: MMdnn 的命令行工具
 category: CNN
 tags: [CNN, MMdnn]
+mathjax: true
 ---
 
 使用 `python` 的包管理工具安装 `mmdnn`
