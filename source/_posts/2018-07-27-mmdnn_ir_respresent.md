@@ -36,7 +36,7 @@ IR 层的 proto 说明文件可见 [github](https://github.com/Microsoft/MMdnn/b
 
 ## Graph
 
-描述网络模型的 `graph`, 内部包含若干 `node`, 这里的结点神经网络中的层，`node` 中的 `input` 即描述每一层之间的输入输出连接关系.
+描述网络模型的 `graph`, 内部包含若干 `node`, 这里的结点即对应网络模型的层，`node` 中的 `input` 即描述每一层之间的输入输出连接关系.
 
 ## NodeDef
 
