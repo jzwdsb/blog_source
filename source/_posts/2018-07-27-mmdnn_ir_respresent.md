@@ -5,7 +5,7 @@ category: CNN
 tags: [CNN, MMdnn]
 ---
 
-[MMdnn](https://github.com/Microsoft/MMdnn), 能够实现在不同的框架之间互相转换网络模型。
+[MMdnn](https://github.com/Microsoft/MMdnn)能够实现在不同的框架之间互相转换网络模型。
 其原理是将所有的模型先转化为中间表达形式(Intermediate Representation), 分析下 IR 层的表示方式。
 
 ## proto 说明文件
@@ -49,7 +49,7 @@ IR 层的 proto 说明文件可见 [github](https://github.com/Microsoft/MMdnn/b
 - `attr`
    `attr` 成员可以是 `listvalue`, `type`, `shape`, `tensor`
   - `list`
-    可能是当 `tensor_shape`, `values`, `type`, `values` 同时存在时使用
+    存储 list 成员，如 list(int), list(float), list(shape) 等
     - data
       保存数值数据，类型可以是 `bytes`, `int64`, `float`, `bool`
     - `type`
