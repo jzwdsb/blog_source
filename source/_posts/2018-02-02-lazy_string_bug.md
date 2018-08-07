@@ -2,7 +2,7 @@
 date: 2018-02-02
 title: c++ 中 std::string 按值传递和按引用 bug
 description: 未找到解决方案
-tags: [C++, bug]
+tags: [bug]
 ---
 
 　　c++ 中被调用函数声明如下

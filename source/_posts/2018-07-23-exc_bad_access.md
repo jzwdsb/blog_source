@@ -2,7 +2,7 @@
 title: EXC_BAD_ACCESS 异常
 date: 2018-07-23
 category: C++
-tags: [C++, bug]
+tags: [bug]
 ---
 
 这次的代码在一行报了 `EXC_BAD_ACCESS` 异常，后来发现是这次的对象没有创建成功，虚函数调用直接失败，这里简单记下这个异常的原因及常见解决方法

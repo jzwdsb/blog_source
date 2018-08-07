@@ -1,7 +1,7 @@
 ---
 title: protobuf 浅试
 category: protobuf
-tags: [google, C++]
+tags: [google]
 date: 2018-07-25
 mathjax: true
 ---
