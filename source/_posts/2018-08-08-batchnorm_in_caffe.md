@@ -101,7 +101,7 @@ caffe_cpu_gemv<Dtype>(CblasTrans, num, channels_, 1.,
 - $v_c^2 = \sum_{i=1}^{m}\sigma_i$
   计算 channel 的 feature map 的 variance 的和
 - $V_n^2 = \sum_{i=1}^{m}v_i$
-  计算 sample 的各 channel 的 variance 的和
+  计算 各 channel 的 simple 的 variance 的和
 
 ### 均值滤波的计算
 
@@ -139,6 +139,8 @@ Caffe 中大量调用 blas 作为底层计算，blas 的函数接口一般都比
 Caffe 中的 BatchNorm 层只对数据做了归一化处理，计算均值的方法使用了的均值滤波算法，线性变换操作放在随后的 Scale 层，可以从其模型在 netscope 的可视化模型中看出，每一个 BatchNorm 后都跟有 Scale 层。
 但是内部框架的 Batchnorm 层则是在 `load_param` 方法中载入模型时，使用模型中的全局统计量计算出均值和方差后，在 `forward` 方法中实现对输入数据的线性变换。
 如果修复成功 Caffe 的 BatchNorm 的输出应与内部框架的 BatchNorm 的输出相同，但是在他们的这一层的操作不一样的情况下应该如何做到这一点呢。
+Caffe 是在每个 channel 的所有 sample 上做均值滤波，但是内部框架是用来做 inference 的，通常只有一个 sample 作为输入，NCHW 中的 N 一般恒为 1, 源码中其实也没有处理输入数据为 3 维以上的实现，其实 `use_global_stat` 参数根据 Caffe 中的描述也只有在为训练时才会为 `false`。
+(╯‵□′)╯︵┻━┻
 
 - [ ] 继续分析
 - [ ] (╯‵□′)╯︵┻━┻ leader 说这做不到实时，毙了
