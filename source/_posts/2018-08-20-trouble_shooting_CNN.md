@@ -5,7 +5,7 @@ date: 2018-08-20
 tags: [CNN]
 ---
 
-记下 CNN 中 troubleshooting 的常用方法
+记下 CNN 中 troubleshooting 的常用方法，原文见于[链接](https://gist.github.com/zeyademam/0f60821a0d36ea44eef496633b4430fc)
 
 ## 分析之前
 
