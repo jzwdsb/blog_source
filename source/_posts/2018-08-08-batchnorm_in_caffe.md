@@ -73,7 +73,7 @@ caffe_cpu_gemm<Dtype>(CblasNoTrans, CblasNoTrans, channels_ * num,
 
 以上三个 cblas 库的 gemv 分别完成的是
 
-- $\mu_{n, c} = \frac{1}{n}  A_{n\cdot c, h\cdot w} \times x_{h\cdot{w},1}$
+- $\mu_{n, c} = \frac{1}{n\cdot h\cdot w}  A_{n\cdot c, h\cdot w} \times x_{h\cdot{w},1}$
   其中由于输入为四维 NCHW 格式，所以这里计算每个 sample 的均值。输出 $out_{n,c}$ 即为第 n 个 sample 的第 c 个 channel 的均值。
   $x$ 为全一列向量，这样即完成单个 feature map 的求和。
 - $s_c = \mu_{n, c}^T\times x_{n, 1}$
