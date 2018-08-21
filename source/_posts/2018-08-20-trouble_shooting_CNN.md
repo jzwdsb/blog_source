@@ -1,7 +1,7 @@
 ---
 title: CNN 的常见问题分析和解决方法
 category: CNN
-date: 2018-08-20
+date: 2018-08-20 11:00
 tags: [CNN]
 ---
 

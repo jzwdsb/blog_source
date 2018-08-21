@@ -1,7 +1,7 @@
 ---
 title: CNN 的基础运算算子
 category: CNN
-date: 2018-08-20
+date: 2018-08-20 15:00
 tags: [CNN]
 mathjax: true
 ---
@@ -145,7 +145,7 @@ Flatten 和 Squeeze 可以认为是 ReShape 的特殊情况
 
 这部分操作可以根据维度参数，边框或者脚标矩阵参数选取 Tensor 的部分数据，或者对 Tensor 的数据进行复制拓展
 
-- Slice 
+- Slice
 - Gather
 - Tile
 - Crop
