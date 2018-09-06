@@ -1,6 +1,7 @@
 ---
 title: MMdnn 的命令行工具
 category: CNN
+date: 2018-07-30
 tags: [CNN, MMdnn]
 mathjax: true
 ---
