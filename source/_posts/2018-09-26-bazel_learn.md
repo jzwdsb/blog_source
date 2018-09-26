@@ -31,7 +31,7 @@ bazel 是 google 开源的自动构建系统。类似于 CMake, Make, Maven. baz
 为指定一个文件夹是 bazel 的 workspace, 可以在目录中创建一个空的 `WORKSPACE` 文件。
 当 bazel 构建工程时，所有的输入和依赖都必须位于相同的 workspace.
 
-##＃ `BUILD` 
+### `BUILD` 
 
 `BUILD` 文件包含若干不同种类的 bazel 指令。其中最重要的指令是 build 指令，告诉 bazel 如何构建输出文件，例如可执行文件或者链接库文件。
 每个在 `BUILD` 中的 build 规则都被称作一个 target, 并且指向一系列的源文件和依赖。一个 target 同样可以指向另一个 target.
