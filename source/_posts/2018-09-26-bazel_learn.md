@@ -49,7 +49,7 @@ cc_binary(
 
 target 中的 attributes 确定该 target 的依赖和选项。 `name` 为必须属性，其他许多为可选属性。在示例中， `hello-world` 中的 `name` 属性是自解释的，`srcs` 确定 bazel 构建该 target 所需的源文件。
 
-##＃ 构建工程
+### 构建工程
 
 在包含 `WORKSPACE` 的目录执行一下命令构建工程, 以 example 中的 `cpp-tutorial/stage1` 为例
 
@@ -59,7 +59,7 @@ bazel build //main:hello-world
 
 bazel 将构建输出放在 `workspace` 下的 `bazel-bin` 目录中。
 
-##＃ 依赖图
+### 依赖图
 
 可以使用以下命令生成工程的依赖图的文字形式，输出内容可以在[链接](http://www.webgraphviz.com/)中生成可视图。
 
@@ -92,4 +92,4 @@ cc_binary(
 
 
 
-~~这样效率好低~~
+~~这样效率好低，好乱~~
