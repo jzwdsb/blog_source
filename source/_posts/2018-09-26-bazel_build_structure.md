@@ -1,6 +1,6 @@
 ---
-title: bazel 的 BIULD 文件的结构
-date: 2018-09-26
+title: bazel 的 BUILD 文件的结构
+date: 2018-09-26 15:00
 category: bazel
 ---
 

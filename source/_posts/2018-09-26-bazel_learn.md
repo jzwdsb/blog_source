@@ -1,6 +1,6 @@
 ---
 title: bazel 初探 
-date: 2018-09-26
+date: 2018-09-26 11:00
 category: bazel
 description:  google 开源的自动构建系统
 ---
