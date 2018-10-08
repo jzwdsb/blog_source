@@ -15,7 +15,7 @@ python3 与 python2 的不兼容的地方主要有以下几点
 - `print` 由关键字变为函数
 - `raw_input` 在 Python3 中变为 `input`
 - `urllib` 重新组织
-- `xrange` 在 Python3 中取代 `range`
+- `xrange` 在 Python3 中重命名为 `range`
 - `raise` 语法改变
 - `except` 语法改变
 - python3 支持 `exception chain`
@@ -33,7 +33,7 @@ python3 与 python2 的不兼容的地方主要有以下几点
 
 ## 常用措施
 
-- `six.print` 代替 `print`
+- `six.print_` 代替 `print`
 - `six.move` 代替 `python3` 中重命名或重新组织的模块, 如 `xrange`
 - `six.iteritems` 代替 `dict` 等容器的迭代
 - `requests` 代替 `urllib`
