@@ -45,6 +45,12 @@ gprof 没有线程安全的实现，无法调试并行计算程序，如使用 `
 
 gperftools 是 Google 提供的软件性能分析工具。原理基于时间的采样，能够正确分析多线程程序，所以可以分析使用 `OpenMP` 的程序。
 
+### install
+
+```
+sudo apt install google-perftools libgoole-perftools-dev
+```
+
 ### usage
 
 - 在需要 profile 的代码段两端加上对 `ProfilerStart("demofile.prof")` 和 `ProfilerStop()` 的调用。接口声明在 `gperftools/profiler.h` 中
@@ -61,6 +67,12 @@ google-pprof -text ./demofile demo.prof
 
 valgrin 是很复杂且使用较为广泛的性能与内存分析工具。它会将程序运行在一个虚拟的处理器中获得其运行时的全部信息。因为是运行在虚拟环境中，所以分析速度会比实时运行慢很多倍。
 valgrind 对多线程程序如 `OpenMP` 的调试也不理想。
+
+### install
+
+```shell
+sudo apt install valgrind kcachegrind
+```
 
 ### usage
 
