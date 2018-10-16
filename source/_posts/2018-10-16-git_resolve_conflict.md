@@ -36,13 +36,13 @@ ask your question in IRC.
 >>>>>>> branch-a
 ```
 
-保存修改
+查看当前的冲突并决定要保存哪一个，保存修改
 
 ```shell
 git add .
 ```
 
-查看当前的冲突并决定要保存哪一个，之后 commit 提交后解决冲突。
+之后 commit 提交后解决冲突。
 
 ```shell
 git commit -m "conflict resolved"
