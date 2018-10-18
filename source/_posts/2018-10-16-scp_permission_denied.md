@@ -14,7 +14,8 @@ scp permission denied 的原因通常是因为权限问题, 认证失败会要�
 
 确保 `to_user` 在 `to_host` 上有以下权限
 
-- 在 `to/file`, 对该目录有 `wx` 权限
-- 如果 `to/file` 有同名文件，确保对该文件有写权限
+- 如果 `to/file` 为目录, 对该目录有 `wx` 权限
+  - 如果在 `to/file` 下有同名文件，确保对该文件有 `w` 权限
+- 如果 `to/file` 为文件，确保对该文件有 `w` 权限
 
 通过以上两个措施一般可以解决 `scp permission denied` 的问题
