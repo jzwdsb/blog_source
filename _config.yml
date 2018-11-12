@@ -13,7 +13,7 @@ language: zh-CN
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: //
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :title/
 tag_dir: tags
 
 # Directory
@@ -29,10 +29,10 @@ filename_case: 0
 render_drafts: false
 post_asset_folder: true
 relative_link: false
-highlight:                                                                                                                                                                                                   
-  enable: true                                                                                                                                                                                               
-  auto_detect: false                                                                                                                                                                                         
-  line_number: true                                                                                                                                                                                          
+highlight:
+  enable: true
+  auto_detect: false
+  line_number: true
   tab_replace: ''
 
 # Category & Tag
