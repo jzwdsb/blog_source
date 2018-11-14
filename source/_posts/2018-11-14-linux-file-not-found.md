@@ -12,6 +12,6 @@ category: Linux
 - 该文件是一个悬挂的 symbolic link
 - 这是个 32-bit 的 object(`file ${FILE} 查看该文件类型`), 但是 host 是 64-bit, 缺少 32-bit 的支持。
 
-这次的错误就是第三个原因，运行该程序所依赖的运行时环境缺少关键组件，但是报告这个错误的通道只有空间使用这个错误码而并没有提供额外的信息。
+这次的错误就是第三个原因，运行该程序所依赖的运行时环境缺少关键组件，但是由于内核的接口只能返回一个错误码，并不能提供额外的信息。
 
 可以查看 [stackexchange](https://unix.stackexchange.com/questions/13391/getting-not-found-message-when-running-a-32-bit-binary-on-a-64-bit-system/13409#13409) 得到更多信息。
