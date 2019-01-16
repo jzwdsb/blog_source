@@ -13,7 +13,7 @@ golang 中常用的几种内置类型如下
 - map
 - Interface {}
 
-# string 
+# string
 
 golang 中的 string 为值类型，与 python 的 str 大致相同，赋值后无法再修改 string 中的内容，但可以通过方法函数构造新的 string
 
@@ -42,6 +42,10 @@ close(ch)
 ```
 
 `make` 的第二参数为该 channel 的长度，如果为 0, 那么这个 channel 就不带 buffer, 如果 $len > 0$, 那么这个 channel 的 buffer 长度为 len
+如果 channel 不带 buffer, 那么传送数据不会发生拷贝，读在写之前发生
+如果 channel 带 buffer，那么传送数据就会发生拷贝，写在读之前发生
+当 channel 为空时，读取操作会阻塞。
+写入一个 `closed` 的 `channel` 会导致 `panic`
 
 channel 支持三个操作
 
