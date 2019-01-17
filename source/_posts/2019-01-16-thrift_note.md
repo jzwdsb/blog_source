@@ -2,6 +2,7 @@
 title: Thrift 相关知识
 category: Thrift
 date: 2019-01-16 18:00
+mathjax: true
 ---
 
 # Thrift 是什么
@@ -82,3 +83,127 @@ test // 实例序列化 16 进制显示为
     0b 0002 00000002 6869
     08 0003 00000012
 ```
+
+## Compact 序列化
+
+Compact 序列化当时不同于 Binary 点主要在于整数类型使用 zigzag 和 varint 压缩编码实现
+
+### varint 编码
+
+步行长无符号整数编码，每个字节只使用 低 7 位，最高一位作为一个标志位 (msb)
+
+- 下一个 byte 也是该数字的一部分
+- 下一个 byte 不是该字节的一部分
+
+该编码好处的对于小数字采用更少字节，大叔街采用更多字节，但大部分使用都是小数字，则整体看压缩效率明显。
+比如 300(i32), Binary 序列化下需要 4 个字节，采用 varint 只需要两个字节
+
+### zigzag 编码
+
+varint 解决了无符号编码的问题，假设有符号数也使用 varint 编码，因为负数最高位是 1, 比如 i32 就都会使用 5 个字节了，反而使用更多字节，为了解决有符号负数的问题，先采用 zigzag 编码将有符号数映射到无符号数上，zigzag 具体算法如下
+
+$$
+m =
+\begin{cases}
+n \times 2 & n > 0 \\\
+2 \times | n | - 1 & n < 0
+\end{cases}
+$$
+
+### compact 实现
+
+大致逻辑与 Binary 序列化实现一样，就是将 i16, i32, i64 三种类型使用 zigzag + varint 编码实现， string, map, list, set 复合类型长度只采用 varint 编码
+
+# RPC 框架
+
+Thrift RPC 整个网络服务一般有五个步骤
+
+![thrift_net_service_steps](/image/thrift_net_service_steps.png)
+
+## 通讯协议
+
+Thrift 中包含 `BinaryProtocol` 和 `CompactProtocol` 通讯协议，分别是前面 `Binary` 和 `Compact` 序列化协议加上 `Message` 传输的协议部分。
+
+以典型常见的 HTTP 协议为例，主要包含三部分
+
+- 路由信息(URL)
+- 控制信息(Header)
+- 数据负载(Body)
+
+主要分析下 `BinaryProtocol` 的实现
+
+`BinaryProtocol` 协议分为严格模式和非严格模式，严格模式下会带上版本 Version 信息，非严格模式下没有版本信息，默认为严格模式。
+
+其中通讯的消息类型主要有四种
+
+- `CALL`
+  值为 1, 请求
+- `REPLY`
+  值为 2, 响应
+- `EXCEPTION`
+  值为 3, 异常
+- `ONEWAY`
+  值为 4, 无返回值请求
+
+### 严格模式
+
+四个字节的版本(含调用类型), 四个字节的消息名称长度，四个字节的流水号，消息负载的值，一个字节的结束标记。
+
+```plain
+version := uint32(VERSION_1) | uint32(typeID)
+WriteI32(int32(version))
+WriteString(name)
+WriteI32(seqID)
+WriteBody(body)
+WriteByte(STOP)
+```
+
+### 非严格模式
+
+四个字节的消息名称长度，一个字节调用类型，四个字节的流水号，消息负载数据的值，一个字节的结束标记。
+
+```plain
+WriteString(name)
+WriteByte(typeID)
+WriteI32(seqID)
+WriteBody(body)
+WriteByte(STOP)
+```
+
+## Transport 实现
+
+Transport 主要分为两类
+
+- 上层传输通道，负责消息的读写和存储
+- 底层传输通道，负责消息在 client/server 之间传输
+
+### 上层 Transport 实现
+
+Transport 主要接口有 open, close, read, write, flush, 官方大部分语言都有多种实现，最常使用的是 `TBufferedTransport` 和 `TFramedTransport`.
+
+- `TBufferedTransport`
+  ``TBufferedTransport` 实现主要是采用了 `BufferIO` 来存储实现，主要使用场景是在 BIO(阻塞式IO)下使用
+- `TFramedTransport`
+  在 `Protocol` 加了 `Header`(四个字节的消息体大小), 主要使用场景为 NIO(非阻塞IO), 其中 C++ 大部分 Thrift Server 采用 NIO 实现。GO 的 Socket 底层是 NIO, 但是在用户层实现了阻塞，所以可以使用 `TBufferedTransport`.
+
+### 如何选择 Transport
+
+- client
+  调用下游使用 `Transport`, 联系下游，这是服务的元信息
+- server
+  从性能和内存使用角度建议使用 TFramedTransport
+
+### 下层 Transport 实现
+
+最常用的有基于 TCP 和 Unix Socket 两种实现方式，大部分 RPC 服务就是使用 TCP 实现，也有 使用 Unix Socket 实现的场景
+
+## Server 实现
+
+由于 Server 实现不考虑跨语言问题，只需要关心实现语言自身特点选用就可以。
+一般实现有以下几种
+
+- TSimpleServer (单进程单线程模式，调试使用）)
+- ThreadPoolServer (单进程多线程模式)
+- TProcessPoolServer (多进程单线程模式，Pie 目前采用)
+- 其他基于 NIO 的各种 Server
+- AIO 的实现

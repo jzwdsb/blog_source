@@ -7,7 +7,7 @@ tags: [CNN]
 
 记下 CNN 中 troubleshooting 的常用方法，原文见于[链接](https://gist.github.com/zeyademam/0f60821a0d36ea44eef496633b4430fc)
 
-## 分析之前
+# 分析之前
 
 - 使用合适的日志和易于理解变量名
   在 tensorflow 中，可以使用 tensorboard 来可视化计算图。
@@ -21,7 +21,7 @@ tags: [CNN]
 - 当在小数据集上过拟合后，寻找合适的学习率
 - 执行梯度检查
 
-## 函数损失没有提高
+# 函数损失没有提高
 
 - 确保使用了合适的损失函数并且优化了正确的 tensor
   常用的损失函数可见[链接](https://en.wikipedia.org/wiki/Loss_functions_for_classification)
@@ -32,13 +32,13 @@ tags: [CNN]
 - 调整初始学习率，实现合适的学习率调度
 - 确保没有过拟合
 
-## 变量没有在训练
+# 变量没有在训练
 
 - 确保它被 tensorflow 当做训练变量
 - 确保没有梯度耗散
 - 确保 ReLus 在工作
 
-## 梯度耗散/梯度爆炸
+# 梯度耗散/梯度爆炸
 
 - 使用数据增强技术
 - 实现 dropout 层
@@ -47,7 +47,7 @@ tags: [CNN]
 - 实现基于正确性的终止
 - 如果失败，使用一个更小的网络
 
-## 其他
+# 其他
 
 - 使用加权损失函数
 - 改变网络的架构

@@ -7,7 +7,7 @@ tags: [Neon]
 mathjax: true
 ---
 
-## 常用指令
+# 常用指令
 
 看实现源码，常用 Neon 指令分为以下几类
 
@@ -30,13 +30,13 @@ mathjax: true
 - 跳转指令
   - `bne`
 
-## 访存指令
+# 访存指令
 
-### `prfm`
+## `prfm`
 
 内存预取指令(prefetch memory)
 
-#### 语法格式
+### 语法格式
 
 ```asm
 PRFM (prfop|#imm5), [Xn|SP{, #pimm}]
@@ -82,43 +82,41 @@ PRFM (prfop|#imm5), [Xn|SP, (Wm|Xm){, extend {amount}}]
 - `amount`
   指数移位量(index shift amount),只有当 `extend` 不是 `LSL` 时可选。可以是 #0, #3.
 
-#### 示例
+### 示例
 
 ```asm
 prfm pldl1keep, [%1 #128]
 ```
 
-### `ld1`
+## `ld1`
 
 读取单个向量到寄存器
 
-### `st1`
+## `st1`
 
 从 1 到 4 个寄存器向内存存储单个向量。
 
-### `pld`
+## `pld`
 
 预取数据，允许处理器向内存管理系统发射信号，使得数据或指令看起来在近期会使用.
 
-### vld
+## vld
 
 已记
 
-## 运算指令
+# 运算指令
 
-
-
-### `subs`
+## `subs`
 
 减法运算
 
-### `add`
+## `add`
 
 加法运算
 
-## 向量指令
+# 向量指令
 
-### `fmla`
+## `fmla`
 
 float point fused multiply-add to accumulator.
 
@@ -126,32 +124,32 @@ $$
 a = a + b \times c
 $$
 
-### `vmla`
+## `vmla`
 
 第一个操作数向量与第二个操作数向量对应相乘，目的寄存器与结果向量对应相加。
 
-### `vand`
+## `vand`
 
 向量按 bit 做与运算
 
-### `ext`
+## `ext`
 
 从两个向量中提取向量
 
-### `ins`
+## `ins`
 
 在一个向量中插入另一向量中的元素
 
-### `trn1`
+## `trn1`
 
 与 `trn2` 转置向量
 
-## 跳转指令
+# 跳转指令
 
-### `bne`
+## `bne`
 
 当状态码zero 不为 0 时做跳转
 
-### `beq`
+## `beq`
 
 当 状态码 zero 为 0 时跳转

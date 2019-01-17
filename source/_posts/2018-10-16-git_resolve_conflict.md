@@ -5,12 +5,13 @@ date: 2018-10-10
 description: 以及如何将 fork 之后的 repo 与原 repo 保持同步
 ---
 
-## 与原 repo 保持同步
+# 与原 repo 保持同步
 
 在 fork 之后的 repo 目录执行以下命令，将原 repo 的 remote 地址添加到当前 git 的 upstream 中.
 之后，执行 fetch 拉取，merge 合并 master.
 或者执行 pull, 等价于以上两个命令同时执行
-```
+
+```shell
 # It doesn't matter how to name the remote, upstream for example
 git remote add upstream git://github.com/origin_repo/repo.git
 
@@ -21,7 +22,7 @@ git merge upstream/master master
 git pull upstream master
 ```
 
-## resolve conflict
+# resolve conflict
 
 在 pull 操作后可能会产生冲突，通常是因为与某个合作者的共同修改了同一文件的同一行导致，又或者因为本地已经落后于远端。
 

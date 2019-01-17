@@ -10,12 +10,12 @@ category: Linux
 
 编译 ops_test target, 相对路径为 `//mace/ops:ops_test`
 
-## 简单步骤
+# 简单步骤
 
 - 本地使用 aarch64 编译器交叉编译到 aarch64 平台目标文件
 - 将编译输出 push 到开发板上，运行测试
 
-## 编译命令
+# 编译命令
 
 bazel 指定 config 目标编译平台为 `aarch64_linux`
 

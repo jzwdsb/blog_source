@@ -4,7 +4,7 @@ tags: [hexo, next]
 date: 2018-07-22 17:00
 ---
 
-## Next 主题添加站内搜索功能
+# Next 主题添加站内搜索功能
 
 - 安装 `hexo-generator-searchdb`, 站点根目录执行以下命令
 

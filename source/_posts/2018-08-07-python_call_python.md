@@ -9,7 +9,7 @@ tags: [C/C++, Python]
 Python 调用 C/C++ 动态库可以使用 `ctypes` 模块提供的功能。
 需要注意的是在使用 C++ 时对导出符号要使用 `extern "C"` 声明，C++ 编译器会对符号名做名字重整(name mangling), 使导出符号不被 `ctypes` 模块识别，`extern "C"` 声明要求编译器对符号按 C 语言的规则处理。`ctypes` 只能识别 `C` 导出的符号。
 
-## C/C++
+# C/C++
 
 ```C++
 static int foo_(int)
@@ -26,7 +26,7 @@ extern "C"{
 }
 ```
 
-## 编译
+# 编译
 
 `gcc/g++` 编译选项包括 `-shared` 选项
 
@@ -39,7 +39,7 @@ g++ -shared -fPIC foo.cpp -o foo.so
 - `-fPIC`
   生成位置无关代码，这样链接库中的地址全为相对地址，为解决载入链接库时的地址重定位问题。
 
-## Python
+# Python
 
 使用 `ctypes` 模块。
 

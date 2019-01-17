@@ -8,17 +8,17 @@ description: git 变基操作
 通常的 workflow 是个人从 master 上拉一个分支然后自己开发相关的模块，经过数次 commit 再与 master merge.
 在与 master merge 时可能出现有冲突的情况，通常是 master 分支上也有人 commit, 并且与本分支冲突，此时想要合并可以使用两种方法
 
-
-## merge
+# merge
 
 ```shell
 git merge branch-a
 ```
+
 将 branch-a 合并到当前分支中，出现的冲突需要手动解决然后再次提交
 
 这样会使 master 分支分叉，有时希望项目的 master 保持单一的历史发展轨迹，不希望分叉，这时可以采用 rebase 操作.
 
-## rebase
+# rebase
 
 ```shell
 git rebase master

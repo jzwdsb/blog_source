@@ -9,13 +9,13 @@ mathjax: true
 protobuf 是 Google 推出的语言独立，平台独立的针对序列化数据的组件，可以类比 xml, 但是比 xml 精简。
 通过使用 protobuf 语法自定义想要的数据结构，接着用 `protoc` 命令就可以产生针对这种数据格式文件读写的各种语言(C/C++, Python, Java等)的 API.
 
-## Mac 上安装 protobuf
+# Mac 上安装 protobuf
 
 ```shell
 brew install protobuf
 ```
 
-## `proto` 语法
+# `proto` 语法
 
 自定义序列化数据结构使用特殊的语法，创建 `proto` 文件，其包含如下内容
 
@@ -38,11 +38,11 @@ message "type"
 }
 ```
 
-## `message`
+# `message`
 
 一个 `message` 类型表示了一个可以序列化的结构。由若干个 `field` 组成
 
-## `field`
+# `field`
 
 一个 `field` 由以下部分构成
 
@@ -56,7 +56,7 @@ message "type"
   - `repeated`
     在一个组织良好的 `message` 中，这个 `field` 可以出现任意次数，值出现的顺序保留。
 
-### 保留域
+## 保留域
 
 可以注明一个 `field` 是 `reserved`，可以标注其 `field number` 或者 `name`, 示例如下
 
@@ -69,7 +69,7 @@ message Foo {
 
 `reserved` 标注意为未来可能会抛弃这个 `field`, 提示用户尽可能少使用这个 `field`, 每当 `proto buffer compiler` 编译这个 `proto` 文件生成 `api` 时都会给出相应的警告。
 
-## `Enumeration`
+# `Enumeration`
 
 `proto` 中定义枚举类型的语法与 `C++` 基本相同
 
@@ -87,11 +87,11 @@ enum Corpus {
 
 注意，一定要有 0 值
 
-## `Any`
+# `Any`
 
 `Any` 类型可以保存任意类型的信息，直接将任何序列化的 `message` 看做看做字节串存储
 
-## `oneof`
+# `oneof`
 
 类似 C++ 中的 `union` ,存储时只存储 `oneof` 域中的一个。
 
@@ -106,7 +106,7 @@ message SampleMessage {
 
 当取其中一个域时，其他域自动会被删除，当使用 C++ 时要注意内存崩溃问题.
 
-## Maps
+# Maps
 
 定义 `Map` 的语法如下
 

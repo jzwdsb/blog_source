@@ -5,9 +5,10 @@ date: 2018-01-30
 title: 逆序数
 description: c++实现
 tags: [algorithm]
+mathjax: true
 ---
 
-> 　　在数列 $$ A=\{a_0, a_1, ..., a_{n-1} \} $$中，如果一组数(i, j)满足$$a_i > a_j$$ 且 i < j,
+> 　　在数列 $ A=\{a_0, a_1, ..., a_{n-1} \} $中，如果一组数(i, j)满足$a_i > a_j$ 且 i < j,
 >那么这组数就称为一个逆序，数列A中的逆序的数量称为逆序数．逆序数与在该数列上执行冒泡排序交换的次数相等．
 > 求给定数列A的逆序数，如果直接使用冒泡排序会导致 Time Limit Exceeded.
 
@@ -18,7 +19,7 @@ tags: [algorithm]
 
 　　根据分治策略，将数列划分为左右两个子数列 L, R 后，该数列的逆序数 = L的逆序数 + R的逆序数 + 合并时两数组时产生的逆序数，由上可得如下代码
 
-```c++
+```C++
 llong count_inversions(vector<int>& data, int low, int high)
 {
     llong v1, v2, v3;

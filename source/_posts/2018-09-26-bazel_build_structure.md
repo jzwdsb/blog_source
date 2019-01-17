@@ -11,11 +11,11 @@ category: bazel
 - `package` 语句
 - rules 和 marcos
 
-## package description
+# package description
 
 包含对 package 的描述
 
-## load 语句
+# load 语句
 
 bazel 扩展文件以 `.bzl` 结尾。使用 `load` 语句导入扩展文件中的符号
 
@@ -26,7 +26,7 @@ load("//build_tools/rules:maprule.bzl", "maprule")
 这行代码载入 `/build_tools/rules/maprule.bzl` 文件并且将 `maprule` 符号添加到环境中。
 该命令通常用来载入 rules, functions 或者 constants(string, list etc.)
 
-## package 语句
+# package 语句
 
 ```bazel
 package(default_deprecation, default_testonly, default_visibility, feature)
@@ -41,7 +41,7 @@ package(default_deprecation, default_testonly, default_visibility, feature)
 - feature
   设置不同的 flag, 影响当前的 BUILD 文件的语义
 
-## rules
+# rules
 
 先记下见到的
 

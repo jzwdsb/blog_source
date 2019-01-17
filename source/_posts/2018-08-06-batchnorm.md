@@ -8,23 +8,23 @@ mathjax: true
 
 关于 BatchNorm 层的原理可以详见此[论文](https://arxiv.org/pdf/1502.03167.pdf)
 
-## BatchNorm 解决的问题
+# BatchNorm 解决的问题
 
 深度卷积神经网络的训练主要是每一层神经元学习本层的输入数据的分布。但是输入数据的分布会随着上一层的计算发生变化，称为 `internal covatiate shift`. 给本层的学习带来了困难，在 `BatchNorm` 之前是通过微调学习率和初始化参数实现，学习速度很低。
 引入 `BatchNorm` 通过对数据规范化处理避免这个问题。
 
-## 原理
+# 原理
 
-### 输入
+## 输入
 
 小批量数据: $B = \{x_1, ...m \}$
 需要学习的参数: $\gamma, \beta$
 
-### 输出
+## 输出
 
 $y_i = BN_{\gamma,\beta}(x_i)$
 
-### 算法
+## 算法
 
 $$
 \mu_B \leftarrow \frac 1 m \sum_{i=1}^{m}x_i \quad \text{mini-batch mean} \\\

@@ -6,7 +6,7 @@ tags: [Neon]
 date: 2018-07-04
 ---
 
-## VLDn
+# VLDn
 
 根据 list 参数的不同可以将 VLDn 分为一下三种
 
@@ -17,7 +17,7 @@ date: 2018-07-04
 - multiple n - element structures
     读取 n - element 结构体到寄存器。n 指定分选模式
 
-### 语法格式
+## 语法格式
 
 ```asm
 VLDn{cond}.datatype list,  [Rn{@aligin}]{!}
@@ -40,7 +40,7 @@ VLDn{cond}.datatype list,  [Rn{@aligin}]{!}
 - Rm
     通用寄存器，包含从基地址的偏移量，如果 Rm 存在，当指令访问内存结束后，Rn 更新(Rn=Rn + Rm), Rm 不能为 PC 或 SP。
 
-### list 参数
+## list 参数
 
 - 读取一个结构，单通道
   - {Dd[x], D(d+1){x}}
@@ -53,9 +53,9 @@ VLDn{cond}.datatype list,  [Rn{@aligin}]{!}
   - {Dd, D(d+1)}
   - {Dd, D(d+2)}
 
-## VLDM
+# VLDM
 
-### 语法格式
+## 语法格式
 
 ```asm
 VLDMmode{cond} Rn{!} Registers
@@ -79,9 +79,9 @@ VLDMmode{cond} Rn{!} Registers
 - Registers
   在 {} 中的寄存器列表。D 寄存器和 Q 寄存器不能混用。不能超过 16 个 D 寄存器或者 8 个 Q 寄存器。
 
-## VSTn
+# VSTn
 
-### 语法格式
+## 语法格式
 
 ```asm
 VSTn{cond}.datatype list [Rn{@align}] {!}
@@ -107,7 +107,7 @@ VSTn{cond}.datatype list [Rn{@align}]，Rm
 
 list 参数的不同格式对 VST 效果同 VLD
 
-## VSTR
+# VSTR
 
 扩展寄存器存储(extension register store)
 

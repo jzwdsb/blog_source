@@ -17,7 +17,9 @@ tags: [matlab, 神经网络]
 
 　　其输出表达式(~~算了看不懂~~)为
 
-$$a = f(\mid \mid W - p \mid \mid \cdot b) = radbas(\mid \mid W - p \mid \mid \cdot b)$$
+$$
+a = f(\mid \mid W - p \mid \mid \cdot b) = radbas(\mid \mid W - p \mid \mid \cdot b)
+$$
 
 ## 径向基网络的创建与学习过程
 

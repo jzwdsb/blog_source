@@ -8,7 +8,7 @@ tags: [bug]
 
 这两天要修复内部框架中 BatchNorm 层在 `use_global_stat` 为 `false` 情况下与 Caffe 输出相差较大的 bug, 根据公式算法实现后仍与 Caffe 有较大差异，研究下 Caffe 中 BatchNorm 的实现，与论文中的四行公式还是有较大出入。
 
-## Caffe 中 BatchNorm 的描述
+# Caffe 中 BatchNorm 的描述
 
 Caffe 关于 BatchNorm 的描述可见此[链接](http://caffe.berkeleyvision.org/tutorial/layers/batchnorm.html)
 以下是描述 Caffe 中 BatchNorm 层参数的 proto 文件。
@@ -21,13 +21,13 @@ message BatchNormParameter{
 }
 ```
 
-### `use_global_stat`
+## `use_global_stat`
 
 `use_global_stat` 为 `true` 时，表示使用全局统计量对当前 `mini-batch` 进行规范化，当为 `false` 时不使用全局统计量，而是使用当前 `mini-batch` 的均值和方差。
 
 这次的问题主要是在模型中 `use_global_stat` 参数为 `false` 情况下导致的，内部框架没有处理 `use_global_stat` 为 `false` 的情况，默认使用全局统计量规范化输入数据，有团队发现在一些模型中该参数为 `false` 时效果更好，于是要添加这个功能。
 
-### `moving_average_fraction`
+## `moving_average_fraction`
 
 每次迭代中滑动平均的 $\beta$ 系数。
 当 $\beta$ 越小时会使全局统计量下降更快，会给最近一次算出来的均值最大的权重
@@ -42,16 +42,16 @@ $\beta$ 即为模型参数中的 `moving_average_fraction` 参数。
 
 原先根据[论文](https://arxiv.org/abs/1502.03167)的公式实现内部框架中 `use_global_stat` 为 `false` 的情况，发现仍与 `Caffe` 的差值较大。均值的计算方式就是简单的算术平均，看来要改下算法。
 
-### `eps`
+## `eps`
 
 为防止除数为 0 加上的扰动量 $eps$, 默认为 $1\times 10^{-5}$.
 
-## 实现
+# 实现
 
 Caffe 中 BatchNorm 的实现可以定位到 `layer/batch_norm_layer.cpp` 中的 `Forward_cpu` 方法。
 重点关注 mean 和 variance 的计算部分。
 
-### 均值的计算
+## 均值的计算
 
 ```C++
 // compute mean
@@ -80,7 +80,7 @@ caffe_cpu_gemm<Dtype>(CblasNoTrans, CblasNoTrans, channels_ * num,
   求各 channel 的均值的和，这里第一个参数为 `CblasTrans` 即指定第一个矩阵要转置, $s_c$即为第 c 个 channel 的在不同 sample 上的均值
 - $S = A_{n, c}\times s_c $
 
-### 方差的计算
+## 方差的计算
 
 ```C++
 caffe_sqr<Dtype>(top[0]->count(), top_data,
@@ -103,7 +103,7 @@ caffe_cpu_gemv<Dtype>(CblasTrans, num, channels_, 1.,
 - $V_n^2 = \sum_{i=1}^{m}v_i$
   计算 各 channel 的 simple 的 variance 的和
 
-### 均值滤波的计算
+## 均值滤波的计算
 
 ```C++
 this->blobs_[2]->mutable_cpu_data()[0] *= moving_average_fraction_;
@@ -123,7 +123,7 @@ caffe_cpu_axpby(variance_.count(), bias_correction_factor,
 $\alpha$ 即 `moving_average_fraction_`, 该参数从模型中读取。
 多次迭代后 $S_t$ 应趋于稳定。
 
-### 方差的归一化处理
+## 方差的归一化处理
 
 ```C++
 caffe_add_scalar(variance_.count(), eps_, variance_.mutable_cpu_data());
@@ -133,7 +133,7 @@ caffe_sqrt(variance_.count(), variance_.cpu_data(),
 
 $V = \sqrt{V^2 + eps}$
 
-## 分析
+# 分析
 
 Caffe 中大量调用 blas 作为底层计算，blas 的函数接口一般都比较复杂，但是掌握其命名规则和函数的公式还是很好理解的。
 Caffe 中的 BatchNorm 层只对数据做了归一化处理，计算均值的方法使用了的均值滤波算法，线性变换操作放在随后的 Scale 层，可以从其模型在 netscope 的可视化模型中看出，每一个 BatchNorm 后都跟有 Scale 层。

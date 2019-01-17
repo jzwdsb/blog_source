@@ -33,7 +33,7 @@ mathjax: true
 
 　　伪代码
 
-```
+```plain
 Function: search(k)
     return tree_search(k, root)
 Function: tree_search(k, node)

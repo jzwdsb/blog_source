@@ -12,16 +12,15 @@ Raspberry Pi 性能分析工具汇总
 - valgrind
 - oproile
 
-## gprof
+# gprof
 
 gprof 属于 GCC 编译器工具包，安装 gcc 编译器后即可使用
 
-### usage
+## usage
 
 - 编译选项加入 `-pg` 打开 gprof 分析模式
 - 链接选项加入 `-all-static` 强制 linker 使用静态链接库
   gprof 分析只会覆盖可执行文件中的例程，运行时加载库中的函数不会在分析结果中，如果使用动态链接库，程序的启动方式会不同。
-
 
 编译生成可执行文件后，像往常一样运行，分析信息和 benchmark 会输出到 `gmon.out` 文件中.
 
@@ -37,21 +36,21 @@ libtool -mode=execute gprof ./demofile
 gporf ./demofile
 ```
 
-### 注意
+## 注意
 
 gprof 没有线程安全的实现，无法调试并行计算程序，如使用 `OpenMP` 或者 `pthread` 编写的程序。
 
-## gperftools
+# gperftools
 
 gperftools 是 Google 提供的软件性能分析工具。原理基于时间的采样，能够正确分析多线程程序，所以可以分析使用 `OpenMP` 的程序。
 
-### install
+## install
 
-```
+```shell
 sudo apt install google-perftools libgoole-perftools-dev
 ```
 
-### usage
+## usage
 
 - 在需要 profile 的代码段两端加上对 `ProfilerStart("demofile.prof")` 和 `ProfilerStop()` 的调用。接口声明在 `gperftools/profiler.h` 中
 - 编译中加入 `profiler` 链接库, 强制使用静态链接, 动态链接库中的函数不会出现在 profiling results 中.
@@ -63,18 +62,18 @@ sudo apt install google-perftools libgoole-perftools-dev
 google-pprof -text ./demofile demo.prof
 ```
 
-## valgrind
+# valgrind
 
 valgrin 是很复杂且使用较为广泛的性能与内存分析工具。它会将程序运行在一个虚拟的处理器中获得其运行时的全部信息。因为是运行在虚拟环境中，所以分析速度会比实时运行慢很多倍。
 valgrind 对多线程程序如 `OpenMP` 的调试也不理想。
 
-### install
+## install
 
 ```shell
 sudo apt install valgrind kcachegrind
 ```
 
-### usage
+## usage
 
 可见[官方文档](http://valgrind.org/docs/manual/manual.html)
 

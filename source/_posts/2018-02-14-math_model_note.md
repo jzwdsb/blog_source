@@ -25,7 +25,9 @@ mathjax: true
 　　将矩阵中的元素根据行的最大值和最小值映射到 [-1, 1]\(默认)之间.
 　　公式如下
 
-$$y = (y_{max} - y_{min}) \times (x - x_{min}) / (x_{max} - x_{min}) + y_{min}$$
+$$
+y = (y_{max} - y_{min}) \times (x - x_{min}) / (x_{max} - x_{min}) + y_{min}
+$$
 
 　　其中 $y_{max}, y_{min}$ 是调用时输入的上下限，默认是 [-1, 1], $x_{max}, x_{min}$ 是 $y$ 所在行中的最大值和最小值．
 
@@ -83,11 +85,15 @@ idx = kmeans(X, k, Name, Value);
 
 　　多元线性回归模型的一般形式
 
-$$Y_i = \beta_{0} + \beta_1 X_{1i} + \beta_2 X_{2i} + ... + \beta_k X_{ki} + \mu_i, i = 1, 2, ...,n $$
+$$
+Y_i = \beta_{0} + \beta_1 X_{1i} + \beta_2 X_{2i} + ... + \beta_k X_{ki} + \mu_i, i = 1, 2, ...,n
+$$
 
 　　多元线性回归的计算模型
 
-$$Y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_k x_k + \epsilon, \epsilon \in N(0, \delta^2) $$
+$$
+Y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_k x_k + \epsilon, \epsilon \in N(0, \delta^2)
+$$
 
 　　参数估计同一元线性回归相同，也是在要求误差平方和最小的前提下，用最小二乘法或极大似然估计法求解参数．
 
@@ -127,7 +133,9 @@ b = regress(y, X);
 　　新增的测试数据如果做归一化处理每一次还要将整个训练数据一起运算，其实是应该用原数据做回归分析和预测.
 　　计算公式如下，两个向量的内积
 
-$$F = \sum_{i = 1}^{13} b_i x_i$$
+$$
+F = \sum_{i = 1}^{13} b_i x_i
+$$
 
 　　这里 b 是回归分析时所得出的各项系数，第一个为常数项； x 为新数据向量，包含 12 个指标参数，第一个必须为常数 1.
 

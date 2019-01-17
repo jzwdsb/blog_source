@@ -6,11 +6,11 @@ date: 2018-07-16
 mathjax: true
 ---
 
-## 原理
+# 原理
 
 在图像处理中，会需要从一个颜色空间转换到另一个颜色空间。 OpenCV 中关于颜色空间转换的公式可见[链接](https://docs.opencv.org/3.1.0/de/d25/imgproc_color_conversions.html)。`GBRA` 到 `GRAY` 空间的转换与 `RGB[A]` 到 `GRAY` 的计算公式并无不同
 
-### bgra2gray
+## bgra2gray
 
 - 浮点计算公式
   $$
@@ -22,7 +22,7 @@ mathjax: true
   Y \leftarrow (1868 \times B + 9617 \times G + 4899 \times R) >> 14
   $$
 
-### gray2bgra
+## gray2bgra
 
 $$
 B \leftarrow Y \\\\
@@ -31,12 +31,12 @@ R \leftarrow Y \\\\
 A \leftarrow max(channelrange)
 $$
 
-## 实现
+# 实现
 
 具体的实现需要一些 trick, 比如使用移位运算代替浮点运算，使用向量运算指令或者 intrinsics 防止编译器做负优化. (~~写这种代码真是心累~~)
 实际上这么常用的功能一定有人已经做过，找到了一篇[博文](https://www.tuicool.com/articles/mYnaMb)(12年的，不知道有没有过时)，当然 github 上面也有几乎完全符合要求的[开源项目](https://github.com/carlj/NEON-ASM-BGRA-to-Grayscale-conversion)(ヾ(✿ﾟ▽ﾟ)ノ), 整理下方法，然后 copy and paste.
 
-### 实现颜色空间转换的几种途径
+## 实现颜色空间转换的几种途径
 
 - 使用 OpenCV 中的 `CV::cvtColor`
 - 使用内联 ARM Neon 指令
@@ -55,7 +55,7 @@ $$
 
 其实就是等比缩小 $2^6$ 而已。
 
-## 注意事项
+# 注意事项
 
 ~~奇怪，项目中的灰度图的深度居然是都是 `f32`, 是我理解错了吗，从来没见过这种深度。~~
 (半天后添加)这里使用的灰度图只是在神经网络作为中间计算结果，不作为显示，后续运算的特征图像素为 `float` 类型，所以这里直接将像素转为 `float` 类型。
