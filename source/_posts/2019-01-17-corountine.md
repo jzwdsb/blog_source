@@ -2,6 +2,7 @@
 title: 协程的相关概念
 category: golang
 date: 2019-01-17
+description: 协程的概念进一步补充
 ---
 
 为了理解协程，需要与线程和进程进行对比

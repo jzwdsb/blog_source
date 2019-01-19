@@ -15,7 +15,7 @@ tags: [algorithm]
 2. 以三等分点s, t为定点作出正三角形(s, u, t)
 3. 对线段(p1, s), (s, u), (u, t), (t,. p2)递归重复进行上述操作
 
-## 解法
+# 解法
 
 　　首先根据所给线段算出三等分点
 
@@ -41,7 +41,7 @@ $$ y_1 = y \cdot cos\theta + x \cdot sin\theta $$
     u.y = (t.x - s.x) * sin(th) + (t.y - s.y) * cos(th) + s.y;
 ```
 
-## 完整代码
+# 完整代码
 
 ```C++
 struct point

@@ -1,25 +1,38 @@
 ---
-layout: post
 category: algorithm
 date: 2018-01-30
 title: 逆序数
-description: c++实现
-tags: [algorithm]
 mathjax: true
 ---
 
-> 　　在数列 $ A=\{a_0, a_1, ..., a_{n-1} \} $中，如果一组数(i, j)满足$a_i > a_j$ 且 i < j,
+> 在数列 $ A=\{a_0, a_1, ..., a_{n-1} \} $中，如果一组数(i, j)满足$a_i > a_j$ 且 i < j,
 >那么这组数就称为一个逆序，数列A中的逆序的数量称为逆序数．逆序数与在该数列上执行冒泡排序交换的次数相等．
 > 求给定数列A的逆序数，如果直接使用冒泡排序会导致 Time Limit Exceeded.
 
-## 分析
+# 分析
 
 　　由于采用冒泡排序计算逆序数在大数组上会导致超时，无法在限定时间内算出正确结果，故采用分治策略，在分支策略中，
 选择使用归并排序．
 
 　　根据分治策略，将数列划分为左右两个子数列 L, R 后，该数列的逆序数 = L的逆序数 + R的逆序数 + 合并时两数组时产生的逆序数，由上可得如下代码
 
-```C++
+```cpp
+long count_inversions(vector<int>& data, int low, int high)
+{
+    long v1, v2, v3;
+    int mid = (low + high) / 2
+    if (low + 1 < high)
+    {
+        v1 = count_inversions(data, low, mid);
+        v2 = count_inversions(data, mid, high);
+        v3 = merge_sort(data, low, mid, high);
+        return v1 + v2 + v3;
+    }
+    return 0;
+}
+```
+
+```cpp
 llong count_inversions(vector<int>& data, int low, int high)
 {
     llong v1, v2, v3;
@@ -39,7 +52,7 @@ llong count_inversions(vector<int>& data, int low, int high)
 设L长度为 n1, L 当前下标为 i , R 当前下标为 j ，只要在合并R各元素时计算 n1 - i, 就能知道L中多少个元素移动到 R[j] 后方，
 即当前有多少个与 R[j] 相关的逆序数．由上可得如下代码
 
-```C++
+```Cpp
 llong merge_sort(vector<int>& a, int low, int mid, int high)
 {
     int i = 0, j = 0, k;
@@ -75,9 +88,9 @@ llong merge_sort(vector<int>& a, int low, int mid, int high)
 }
 ```
 
-## 完整代码
+# 完整代码
 
-```C++
+```Cpp
 llong merge_sort(vector<int>& a, int low, int mid, int high)
 {
     int i = 0, j = 0, k;

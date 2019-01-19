@@ -21,7 +21,7 @@ The basic data flows likes the picture belows
 
 ![data_flows](/downloads/basic-data-flow.png)
 
-### Lexer
+# Lexer
 
 　　The Lexer transform the input file in to a token stream, it should be at least have
 two interface.
@@ -42,7 +42,7 @@ In the current finished version in cpp, the Lexer has two parts
 　　Scanner transform the source file into char stream, Lexer transform the char stream into token
 Stream.
 
-### Parser
+## Parser
 
 　　The parser handles the core steps of the compile process, in this simple pl0 compiler,
 we mainly used recursive descent method.
@@ -73,7 +73,7 @@ a terminal symbol '.', which indicate the end of the parsing process.
 　　Then next thing is the block will call other function according to the EBNF
 that compose the block.
 
-### Target Code Generator
+## Target Code Generator
 
 　　The Target Code Generator just like the Lexer, both of them are called by the
 Parser when it needed.
@@ -101,7 +101,7 @@ run the code which is not in the current procedure.After the statement is over,
 we need add return instruction so the current procedure can finished and release
 the memory it used. When the top procedure is returned, the program is finished.
 
-## Expand Feature Content
+# Expand Feature Content
 
 　　Some feature are easy to expand, such as +=, -=, *=, /= etc. Just treat the left
 operand as a factor and push it onto the stack, do the operator assignment then store
