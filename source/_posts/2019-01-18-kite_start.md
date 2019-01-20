@@ -24,130 +24,53 @@ kite 提供了 kitool 工具，来帮助生成代码和升级工具
 - 生成 server 代码，编写逻辑
 - 生成 client 代码，发起 RPC
 
-# 示例
+# kite 的简单使用
 
-## thrift 文件
+这里为了说明不使用自定义的 thrift 描述文件，直接使用 kite 文件
 
-```thrift
-include "base.thrift"
-
-namespace go toutiao.kite.example
-namespace py example
-
-struct ThriftItem {
-    1: i64 ID64
-    2: i32 ID32
-    3: double NumD
-    4: string NameStr
-    5: list<i64> List64
-    6: list<string> ListStr
-    7: map<string, i64> MapStr64
-    8: map<string, string> MapStr2
-}
-
-struct ExampleRequest {
-    1: string Name,
-    2: i64 ID64
-    3: i32 ID32
-    4: double NumD
-    5: list<i64> List64
-    6: list<string> ListStr
-    7: map<string, i64> MapStr64
-    8: map<string, string> MapStr2
-
-    255: base.Base Base,
-}
-
-struct ExampleResponse {
-    1: string Resp,
-
-    255: base.BaseResp BaseResp,
-}
-
-service ExampleService {
-    ExampleResponse Visit(1: ExampleRequest req)
-    ExampleResponse Visit2(1: ExampleRequest req)
-}
-```
-
-## kitool 生成代码
-
-```shell
-kitool new -c -s -i idl/example.thrift -pre demo/thrift_gen  -trans Buffered -proto Binary -cmd thrift example
-```
-
-## 实现其 RPC 的逻辑
-
-客户端
+## 服务端
 
 ```golang
 package main
 
-import (
-    _ "kite/example"
-    "kite/kitc"
-    "context"
-    "base"
-    "example"
-    "time"
-)
+import "github.com/koding/kite
 
-var (
-    ExampleClient *kitc.KitcClient
-)
-
-func init() {
-    var err error
-    ExampleClient, err = kitc.NewClient("toutiao.kite.example",
-        kitc.WithTimeout(time.Millisecond*10),
-        kitc.WithInstances(kitc.NewInstance("127.0.0.1", "8021", nil)))
-
-    if err != nil {
-        logs.Error("NewExampleServiceClient error: %S", err)
-        panic(err)
-    }
-}
-
-// implement visit method
-func Visit(ctx context.Context, r *example.ExampleRequest) (*example.ExampleResponse, error) {
-    logs.CtxInfoKvs(ctx, "request", r, "msg", "Handle Visit request")
-    name := r.Name + "Visit"
-    req2 := &example.ExampleRequest{Base: &base.Base{}, Name: name}
-    response, err := ExampleClient.Call("Visit2", ctx, req2)
-    if err != nil {
-        logs.Error("Call Visit2 error: %s", err)
-        return nil, err
-    }
-    rName := response.RealResponse().(*example.ExampleResponse).Resp
-    resp := example.NewExampleResponse()
-    resp.Resp = name + rName
-    resp.BaseResp = &base.BaseResp{StatusCode: 0}
-    return resp, nil
-}
-
-func Visit2(ctx context.Context, r *example.ExampleRequest) (*example.ExampleResponse, error) {
-    name := r.Name + "Visit2"
-    resp := example.NewExampleResponse()
-    resp.Resp = name
-    resp.BaseResp = base.NewBaseResp()
-    return resp, nil
+func main() {
+    k := kite.New("kite", "1.0.0")
+    k.Config.Port = 8080
+    k.Run()
 }
 ```
 
-服务端实现
+代码说明
+
+- `kite.New`  创建一个名字为 `first`, 版本号 `1.0.0` 的 kite.
+- k.Config 用于设置 kite 的属性，比如 端口号
+- Run 方法表示运行此服务，此方法会阻塞，之后就可以接受请求了
+
+## 客户端
 
 ```golang
 package main
-
 import (
-    "logs"
-    "kite"
+    "fmt"
+    "github.com/koding/kite"
 )
 
 func main() {
-    kite.Init()
-    logs.Info("Server version: %s", kite.ServiceVersion)
-    logs.Fatal("%s", kite.Run())
-    logs.Stop()
+    k := kite.New("second", "1.0.0")
+    client = k.NewClient("http://localhost:6000/kite")
+    client.Dial()
+    response, _ := client.Tell("kite.ping")
+    fmt.Println(response.MustString)
 }
 ```
+
+代码说明
+
+- `k.NewClient`
+  创建一个 client, 参数指定要连接的 url
+- `Dial`
+  client 通过 `Dial` 连接服务器，如果连接失败则返回 error
+- `client.Tell`
+  该方法的调用会阻塞，直到服务端调用了 callback 函数，之后返回 response
