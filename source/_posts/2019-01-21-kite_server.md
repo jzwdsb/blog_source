@@ -281,3 +281,21 @@ func (p *RpcServer) Serve() error {
 - 如果监听模式为 `LISTEN_TYPE_TCP`
   - 注册到 consul 方便查找
 - 执行 `AcceptLoop` 处理请求
+
+# PushEvent
+
+## 源码
+
+```golang
+func (p *RpcServer) PushEvent(e *kitevent.KiteEvent, printLog bool) {
+    if printLog {
+        logs.Infof("KITE: event: name %s, time %v, detail: %s", e.Name. e.Time, e.Time)
+    }
+    p.eventqueue.Push(e)
+    if err := p.reporter.ReportEvent(e); err != nil {
+        logs.Infof("KITE: report event: %v, err: %s", *e, err.Error())
+    }
+}
+```
+
+`PushEvent` 的逻辑是将时间 push 到 RcpServer 的实践队列中

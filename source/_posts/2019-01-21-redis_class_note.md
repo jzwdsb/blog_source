@@ -1,5 +1,5 @@
 ---
-title: redis 原理与客户端实现
+title: redis 关键技术
 date: 2019-01-21 18:00
 category: 数据库
 ---
