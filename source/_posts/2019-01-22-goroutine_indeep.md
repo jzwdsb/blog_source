@@ -1,5 +1,5 @@
 ---
-title: golang 中的 goroutine 深入理解
+title: golang 中的 goroutine
 category: golang
 date: 2019-01-22 15:00
 ---
