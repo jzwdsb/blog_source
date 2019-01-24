@@ -1,8 +1,9 @@
 ---
 title: redis 初探
-category: database
+category: 数据库
 date: 2019-01-21 17:00
 mathjax: true
+tags: [redis]
 ---
 
 redis 官网对 redis 的介绍.
