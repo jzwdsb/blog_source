@@ -132,4 +132,3 @@ func (kc *KitcClient) Call(method string, ctx context.Context, request interface
 - caller 调用方法
 - 调用 middleWare
 - 返回 response
-
