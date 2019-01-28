@@ -7,3 +7,5 @@ public/
 .deploy*/
 *~
 .vscode/
+_*
+!source/_posts/
