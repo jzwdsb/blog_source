@@ -52,7 +52,7 @@ llong count_inversions(vector<int>& data, int low, int high)
 设L长度为 n1, L 当前下标为 i , R 当前下标为 j ，只要在合并R各元素时计算 n1 - i, 就能知道L中多少个元素移动到 R[j] 后方，
 即当前有多少个与 R[j] 相关的逆序数．由上可得如下代码
 
-```Cpp
+```cpp
 llong merge_sort(vector<int>& a, int low, int mid, int high)
 {
     int i = 0, j = 0, k;
