@@ -80,11 +80,11 @@ func NewMultiServPool(servers []string, ch chan []string, opt *Option) *MultServ
 ## 逻辑
 
 - 对于传入的 `servers` 中的每个地址做域名解析
-- 保存解析的 ip 地址，添加到 `nowservers` 和  `servmap` 中
+- 保存解析的 ip 地址，一个域名只保留一个对应的 ip, 添加到 `nowservers` 和  `servmap` 中, 一个 host 即一个 ip 对应一个连接池
 - 随机打乱 `nowservers`
 - 根据 options 的中的 `autoLoadConf` 和 `IdleCheckFrequency` 分别打开一个协程，每隔给定时间间隔就分别重新更新服务器 ip 列表，关闭空闲连接
 
-在连接池的管理中，一个 host 即一个 ip 对应一个连接池
+参数 poolSize 指定一个连接池中能缓存的连接的最大个数，当连接池刚刚创建完成后，连接池实际上是空的，内部只是保存计数，实际的连接管理是当 client 端请求连接时创建，每当 client 返还连接后，将这个连接添加到空闲连接池队列中，之后优先从空闲连接池中取连接。
 
 # 接口
 
@@ -261,6 +261,6 @@ func (cn *Conn) IsStale(timeout time.Duration, liveTimeout time.Duration) bool {
 - client 调用 `GetConn` 从连接池中获取连接
 - reaper 所在的 `goroutine` 定时调用
 
-当返还时直接添加到 `p.freeConn` 的尾部，`popFree` 也是从尾部取出空闲连接，当 `reaper` 时则是从头部删除空闲连接
+当返还时直接添加到 `p.freeConn` 的尾部，`popFree` 也是从尾部取出空闲连接，当 `reaper` 时则是从头部删除空闲连接，可见空闲连接删除的顺序就是 client 返还连接的顺序。
 
 由于 client 返还并无一定的顺序性，所以这里添加删除策略也是比较简单，中间连接的顺序应该也是业务无关的。
