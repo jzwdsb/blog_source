@@ -171,7 +171,7 @@ func (p *ConnPool) Get() (*Conn, bool, error) {
 ```
 
 该部分主要逻辑是从现有的连接池中取出一个连接或者创建新连接，仅在没有空闲连接时才会创建新连接。
-中间用了 chan 和锁来保证并发安全性。
+中间用了 chan 和读写锁来保证并发安全性。
 
 # 空闲连接的管理
 
@@ -249,7 +249,7 @@ func (cn *Conn) IsStale(timeout time.Duration, liveTimeout time.Duration) bool {
 
 以上清理空闲连接实际上是直接清理 `p.freeConn` 中的第一个，这里 p 中的连接排布就可能影响到到不同情况下的清理策略，因此需要详细看下。
 
-`p.freeConn` 的 appen 和 del 发生在以下几个方法中
+`p.freeConn` 的 append 和 del 发生在以下几个方法中
 
 - `popFree`
 - `Put`

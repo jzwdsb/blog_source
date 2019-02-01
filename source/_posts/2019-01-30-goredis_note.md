@@ -165,7 +165,7 @@ func (c *baseClient) defaultProcess(cmd Cmder) error {
 
 # cmd
 
-cmd 为各个操作的返回类型，不同的操作有不同的返回值，但是都继承于 basecmd.
+cmd 为各个操作的参数，并携带命令执行的结果，不同的操作有不同的返回值，但是都继承于 basecmd.
 
 - basecmd
 - Cmd
@@ -232,6 +232,19 @@ type StatefulCmdable interface {
     ClientSetName(name string) *BoolCmd
     ReadOnly(name string) *StatusCMd
     ReadWrite() *StatusCmd
+}
+```
+
+## pipeline 的命令处理函数
+
+每当调用 pipeline 继承自 cmdable 对 redis 操作的接口时，底层的调用的 process 命令处理方法为 pipeline 中重写的 `Process` 方法
+
+```golang
+func (c *Pipeline) Process(cmd Cmder) error {
+    c.mu.Lock()
+    c.cmds = append(c.cmds, cmd)
+    c.mu.UnLock()
+    return nil
 }
 ```
 
