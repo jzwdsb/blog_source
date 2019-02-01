@@ -84,6 +84,8 @@ func NewMultiServPool(servers []string, ch chan []string, opt *Option) *MultServ
 - 随机打乱 `nowservers`
 - 根据 options 的中的 `autoLoadConf` 和 `IdleCheckFrequency` 分别打开一个协程，每隔给定时间间隔就分别重新更新服务器 ip 列表，关闭空闲连接
 
+在连接池的管理中，一个 host 即一个 ip 对应一个连接池
+
 # 接口
 
 以下接口是在 goredis.MultiServPool 在 goredis.Client 中常用到的接口
@@ -223,6 +225,25 @@ func (p *ConnPool) reapStaleConn() bool {
 - 开启一个协程，调用 reaper, 每隔一定时间间隔就开始清理
 - 空闲连接缓存在 `p.freeConn` 中，直接取第一个 conn, 如果该连接不处于 stale 状态，则该连接不能清理，所以可以直接返回 false
 - 关闭该连接，将该连接从 Slice 中清除
+
+## stale 状态
+
+上面清理连接的关键逻辑在于连接是否处于 stale 状态，该状态的实现逻辑如下
+
+```golang
+func (cn *Conn) IsStale(timeout time.Duration, liveTimeout time.Duration) bool {
+    if liveTimeout == 0{
+        return timeout > 0 && time.Since(cn.UsedAt()) > timeout
+    }
+    return (timeout > 0 && time.Since(cn.UsedAt)) > timeout || (time.Since(cn.CreateAt()) > liveTimeout)
+}
+```
+
+判定逻辑
+
+- 如果连接最长保持时间 == 0
+  - 则当距离最近一次设置读写超时超过 timeout 后，则当前连接处于 stale 状态，否则就不是
+- 如果当前距离上次设置读写超时超过 timeout 或者连接建立时间超过 liveTimeout, 则处于 stale 状态，否则不是
 
 ## 关于 p.freeConn
 
