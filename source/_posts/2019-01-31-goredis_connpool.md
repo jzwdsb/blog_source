@@ -264,3 +264,11 @@ func (cn *Conn) IsStale(timeout time.Duration, liveTimeout time.Duration) bool {
 当返还时直接添加到 `p.freeConn` 的尾部，`popFree` 也是从尾部取出空闲连接，当 `reaper` 时则是从头部删除空闲连接，可见空闲连接删除的顺序就是 client 返还连接的顺序。
 
 由于 client 返还并无一定的顺序性，所以这里添加删除策略也是比较简单，中间连接的顺序应该也是业务无关的。
+
+## 关于熔断
+
+问题
+
+> 如果连接池中缓存的连接所指的 server 宕机了，这里如何探测和剔除
+
+首先一个连接池中的连接所指的 server 

@@ -144,9 +144,13 @@ func (c *Pipeline) Process(cmd Cmder) error {
 
 # 结论简述
 
-使用 pipeline 执行多次命令的逻辑如下
+从得到 pipeline, 到执行多次命令并返回结果的调用链如下，以 get 为例
 
-- 每当调用一次操作如 Get, Set 时将命令压入内部队列中，获得 `Cmder`
-- 调用 Exec 执行，将命令一次性写入连接，获得每个命令的 err
-- 使用 Cmder 获得结果
-
+- `goredis.Client.Pipeline` 获取一个 pipeline
+- `redis.Client.Pipeline`, 在这里将 `pipeline.exec` 和 `pipeline.process` 设置为 `redis.Client.pipelineExecer` 和 `Pipeline.Process`
+- `pipeline.Get`
+- `Pipeline.Process`, 这里将上层传入的命令压入 `pipeline.cmds`, 并返回用于获得命令结果
+- 调用 `pipeline.Exec` 执行缓存的命令
+- `pipelineExecer` 获取连接和命令，设置重试次数和间隔时间，传入下层，释放连接
+- `pipeProcessCmds` 将命令一次性写入连接，并读取 server 的结果
+- 此时各个命令的结果缓存在 cmders 中, `Exec` 返回 Cmder Slice 和 error Slice, 表示每个命令的错误
