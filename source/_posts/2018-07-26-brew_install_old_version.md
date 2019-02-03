@@ -1,7 +1,6 @@
 ---
 title: Mac 上使用 brew 安装旧版本 formula
 date: 2018-07-26
-category: Mac
 tags: [Homebrew]
 ---
 

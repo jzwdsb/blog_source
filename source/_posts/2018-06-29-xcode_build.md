@@ -1,7 +1,7 @@
 ---
 title: 在 Mac 下使用 CMake 编译 IOS 项目时遇到的问题
 date: 2018-06-29
-category: Mac
+tags: [Mac, Xcode]
 ---
 
 CMAKE 编译 IOS 项目时报错提示 `CMAKE_OSX_SYSROOT` 路径不存在.

@@ -1,7 +1,7 @@
 ---
 title: Mac 关闭 rootless 模式
 date: 2018-06-29
-category: Mac
+tags: [Mac]
 ---
 
 第一次使用Mac，发现在某些目录中间拷贝或者创建文件时即使使用 sudo 也提示 Operation Not permitted，经过搜索发现是 Mac 开启了 Rootless 模式，即使 root 用户也不能对一些文件夹如 `/System`, `/usr`, `/bin`, `/sbin` 做修改。 需要手动关闭这个模式。

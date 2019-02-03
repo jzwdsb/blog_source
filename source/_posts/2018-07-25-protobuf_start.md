@@ -1,9 +1,8 @@
 ---
 title: protobuf 浅试
-category: protobuf
-tags: [google]
 date: 2018-07-25
 mathjax: true
+tags: [protobuf]
 ---
 
 protobuf 是 Google 推出的语言独立，平台独立的针对序列化数据的组件，可以类比 xml, 但是比 xml 精简。

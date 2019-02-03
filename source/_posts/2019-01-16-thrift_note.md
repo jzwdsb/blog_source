@@ -1,8 +1,8 @@
 ---
 title: Thrift 相关知识
-category: Thrift
 date: 2019-01-16 18:00
 mathjax: true
+tags: [thrift]
 ---
 
 # Thrift 是什么

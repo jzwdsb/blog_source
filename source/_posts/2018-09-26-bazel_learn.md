@@ -1,8 +1,8 @@
 ---
 title: bazel 初探 
 date: 2018-09-26 11:00
-category: bazel
 description:  google 开源的自动构建系统
+tags: [bazel]
 ---
 
 bazel 是 google 开源的自动构建系统。类似于 CMake, Make, Maven. bazel 支持项目使用多种语言编写，构建到多平台上。官方网址见链接见[链接](https://bazel.build/)

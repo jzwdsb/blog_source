@@ -1,7 +1,7 @@
 ---
 title: bazel 的 BUILD 文件的结构
 date: 2018-09-26 15:00
-category: bazel
+tags: [bazel]
 ---
 
 通常 bazel 中的 `BUILD` 文件的结构如下

@@ -1,7 +1,6 @@
 ---
 title: Xcode PBXcp 错误及其解决办法
-category: Mac
-tags: [bug, Xcode]
+tags: [Mac]
 date: 2018-07-24
 ---
 

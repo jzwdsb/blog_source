@@ -1,7 +1,6 @@
 ---
 title: Cmake 生成 Xcode 工程
 date: 2018-07-23
-category: Mac
 tags: [Cmake, Mac, Xcode]
 ---
 
