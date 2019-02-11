@@ -6,7 +6,7 @@ tags: [消息队列]
 ---
 
 kafka 是用于日志处理的分布式消息队列，同时支持离线和在线日志处理。
-kafks 在保存消息时根据 topic 进行分类，消息发送者为 producer, 消息接受者为 consumer, 此外 kafka 集群有多个 kafka 实例组成，每个实例称为 broker.无论是 kafka 集群，还是 producer 和 consumer 都依赖于 zookeeper 来保证系统可用性，为集群保存一些 meta 信息。
+kafka 在保存消息时根据 topic 进行分类，消息发送者为 producer, 消息接受者为 consumer, 此外 kafka 集群有多个 kafka 实例组成，每个实例称为 broker.无论是 kafka 集群，还是 producer 和 consumer 都依赖于 zookeeper 来保证系统可用性，为集群保存一些 meta 信息。
 
 # 常用术语
 
