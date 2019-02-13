@@ -36,7 +36,7 @@ kafka 在保存消息时根据 topic 进行分类，消息发送者为 producer,
 
 在 kafka 中，及时消息被消费，消息也不会被立刻删除。日志文件会根据 broker 中的配置要求，保留一定的时间之后删除，比如 log 文件保留 2 天，那么两天之后，文件会被清除，无论其中的消息是否被消费。kafka 通过这种简单的手段，来释放磁盘空间，以及减少消息消费之后对文件内容改动的 IO 开销。
 
-对于 consumer 而言，需要保存消费信息的 offset, 由 consumer 管理 offset 的保存和使用。当 consumer 正常消费时，offset 将会线性的向前驱动，即消息将依次顺序被消费。事实上 consumer 可以使用任意顺序消费信息，只需要将 offset 重置为任意值。
+对于 consumer 而言，需要保存消费信息的 offset, 由 consumer 管理 offset 的保存和使用。当consumer 正常消费时，offset 将会线性的向前驱动，即消息将依次顺序被消费。事实上 consumer 可以使用任意顺序消费信息，只需要将 offset 重置为任意值。
 
 kafka 集群不需要维护任何 consumer 和 producer 状态信息，这些信息由 zookeeper 保存，因此 producer 和 consumer 的客户端实现非常轻量级，它们可以随时离开，而不会对集群造成额外影响。
 
