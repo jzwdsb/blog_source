@@ -2,7 +2,6 @@
 title: WAL(Write Ahead Logging) 相关概念
 date: 2019-02-12
 category: 后端
-tags: [数据库]
 ---
 
 WAL(Write ahead logging) 用于数据库系统中，提供原子性和持久性操作。
