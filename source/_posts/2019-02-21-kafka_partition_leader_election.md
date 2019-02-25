@@ -55,7 +55,6 @@ Leader 会维护一个 ISR 列表. 如果一个 follower 宕机，或者落后�
 
 kafka 的复制机制既不是完全的同步复制，也不是单纯额异步复制。事实上，同步复制要求所有能工作的 Follower 都要复制完，这条消息才会被认为 commit, 这种复制方式会极大地影响吞吐量。而异步复制方式下，Follower 异步的从 Leader 复制数据，数据只要被 Leader 写入 log 就认为已经 commit, 这种情况下如果 follower 都复制完都落后于 leader, 而如果 Leader 突然宕机，则会丢失数据。而 Kafka 这种使用 ISR 的方式则很好的均衡了数据不丢失以及吞吐量。Follower 可以批量的从 Leader 复制数据，这样极大地提高复制性能(批量写磁盘), 极大减少了 Follower 与 Leader 的差距.
 
-
 # Leader Election
 
 当 leader 宕机后，如何在 follower 中选举出新的 leader.
@@ -88,4 +87,3 @@ kafka 选择第二种方式处理这种情况，在未来的版本中，将支�
   Zookeeper 负载过重，每个 Replica 都要为此在 Zookeeper 上注册一个 Watch, 当集群规模增加到几千个 Partition 时 Zookeeper 负载会过重
 
 在 kafka 0.8.* 的 leader Election 方案解决上述问题，他在所有 broker 中选出一个 controller, 所有 Partition 的 Leader 都由 Controller 决定。Controller 会将 Leader 的改变直接通过 RPC 的方式(比 Zookeeper queue 更高效) 通知需为此做出相应的 broker, 同时 controller 也负责增删 Topic 以及 Replica 的重新分配。
-
