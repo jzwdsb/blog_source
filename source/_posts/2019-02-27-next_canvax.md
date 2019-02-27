@@ -12,3 +12,5 @@ theme 是 nexT, 在 `themes/next/layout/_layout.swig` 的 body 块中添加如�
 ```swig
 <script type="text/javascript" color="0,0,0" opacity='0.5' zIndex="-1" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 ```
+
+当然也可以 `npm install --save canvas-nest.js`, 只是不太可控
