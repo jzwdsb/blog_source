@@ -10,5 +10,5 @@ tags: [hexo, next]
 theme 是 nexT, 在 `themes/next/layout/_layout.swig` 的 body 块中添加如下内容即可
 
 ```swig
-<script type="text/javascript" color="0,0,255" opacity='0.5' zIndex="-1" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+<script type="text/javascript" color="0,0,0" opacity='0.5' zIndex="-1" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 ```
