@@ -1,5 +1,5 @@
 ---
-title: next 主题背景添加 canvax next 特效
+title: next 主题背景添加 canvax nest 特效
 category: blog
 date: 2019-02-27 20:00
 tags: [hexo, next]
