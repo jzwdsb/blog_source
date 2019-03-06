@@ -100,8 +100,5 @@
   {% include '_third-party/exturl.swig' %}
   {% include '_third-party/bookmark.swig' %}
   {% include '_third-party/copy-code.swig' %}
-  {% if theme.canvas_nest %}
-  script type="text/javascript" color="0,0,255" opacity='0.5' zIndex="-1" count="150" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-  {% endif %}
 </body>
 </html>
