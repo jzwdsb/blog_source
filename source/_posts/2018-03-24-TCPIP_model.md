@@ -35,6 +35,7 @@ description: 层次划分及各层功能
 　　每一个应用层协议一般会使用两个传输层协议之一: 面向连接的 TCP 和无连接的包传输的 UDP，常用的应用层协议有
 
 　　运行在 TCP 上的协议
+
 * HTTP(Hypertext Transfer Protocol, 超文本传输协议)，主要用于普通的浏览网页
 * HTTPS(Hypertext Transfer Protocol over Secure Socket Layer, or HTTP over SSl, 安全超文本传输协议)，HTTP 协议的安全版本
 * FTP(File Transfer Protocol, 文件传输协议), 用于文件传输
@@ -44,11 +45,13 @@ description: 层次划分及各层功能
 * SSH(Secure Shell, 用于替代安全性差的TELNET), 用于加密安全登录
 
 　　运行在 UDP 协议上的协议
+
 * BOOTP(Boot protocol, 启动协议), 应用于无盘设备
 * NTP(Network Time Protocol, 网络时间协议), 用于网络同步
 * DHCP(Dynamic Host Configuration Protocol, 动态主机配置协议), 动态配置 IP 地址
 
 　　其他
+
 * DNS(Domain Name Service, 域名服务), 用于完成地址查找，邮件转发等工作(运行在 TCP 和 UDP 之上)
 * ECHO(Echo Protocol, 回绕协议), 用于查错及测量应答时间(运行在 TCP 和 UDP 之上)
 * SNMP(Simple Network Management Protocol, 简单网络管理协议)，用于网络信息的收集和网络管理
