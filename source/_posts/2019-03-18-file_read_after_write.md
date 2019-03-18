@@ -1,5 +1,5 @@
 ---
-title: 文件的写问题
+title: 关于文件的读写问题
 date: 2019-03-18
 category: Operate System
 ---
