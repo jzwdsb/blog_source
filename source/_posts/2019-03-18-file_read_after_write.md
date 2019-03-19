@@ -20,7 +20,7 @@ category: Operate System
 
 ```golang
 offset, err := file.Seek(0, 0)
-if offset != nil || err != nil {
+if offset != 0 || err != nil {
     // seek to file begin failed.
     // handle error
 }
