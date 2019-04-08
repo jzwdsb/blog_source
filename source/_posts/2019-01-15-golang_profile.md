@@ -1,6 +1,6 @@
 ---
 title: golang 的性能分析
-category: golang
+category: Golang
 date: 2019-01-15 20:00
 ---
 

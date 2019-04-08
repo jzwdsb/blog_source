@@ -1,6 +1,6 @@
 ---
 title: golang 中的 defer, panic 以及 recover
-category: golang
+category: Golang
 date: 2019-01-15 17:00
 ---
 

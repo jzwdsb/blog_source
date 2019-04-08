@@ -1,6 +1,6 @@
 ---
 title: golang 中的指针
-category: golang
+category: Golang
 date: 2019-01-15 10:00
 ---
 

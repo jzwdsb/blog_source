@@ -1,8 +1,9 @@
 ---
-title: golang 踩坑记 --- (1)
-category: golang
+title: golang 踩坑记(1)
+category: Golang
 date: 2019-03-25 18:00
 tags: [bug]
+description: 关于 golang 中的协程调度和变量捕捉
 ---
 
 # 问题

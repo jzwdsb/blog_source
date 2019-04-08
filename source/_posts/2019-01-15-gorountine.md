@@ -1,7 +1,7 @@
 ---
 title: golang 中的 gorountine 与 channel
 date: 2019-01-15 11:00
-category: golang
+category: Golang
 ---
 
 golang 与其他语言最大不同在于其对并发的支持，由 gorountine 实现，`go` 关键字声明一个函数放在 gorountie(协程) 中执行，多个 routine 之间通过 channel 实现非阻塞调用。

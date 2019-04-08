@@ -1,6 +1,6 @@
 ---
 title: golang 缺失 sys 问题
-category: golang
+category: Golang
 date: 2019-02-14
 ---
 

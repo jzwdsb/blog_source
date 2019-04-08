@@ -1,6 +1,6 @@
 ---
 title: golang 中常见的内置类型
-category: golang
+category: Golang
 date: 2019-01-15 15:00
 mathjax: true
 ---

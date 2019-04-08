@@ -1,6 +1,6 @@
 ---
 title: golang 中的 goroutine
-category: golang
+category: Golang
 date: 2019-01-22 15:00
 ---
 

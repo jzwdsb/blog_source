@@ -1,6 +1,6 @@
 ---
 title: golang 中的 select 关键字
-category: golang
+category: Golang
 date: 2019-01-16 15:00
 ---
 
