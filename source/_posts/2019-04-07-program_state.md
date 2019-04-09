@@ -1,5 +1,6 @@
 ---
 title: 程序的高可用性
+date: 2019-04-09
 category: 设计模式
 tags: [kafka]
 ---
