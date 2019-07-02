@@ -1,7 +1,7 @@
 ---
 title: 服务发现相关
 category: 后端
-date: 2019-0z1-24 17:00
+date: 2019-01-24 17:00
 tags: [golang, kite]
 ---
 
