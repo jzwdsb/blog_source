@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>背景</title>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        
+    </head>
+    <body>
+        <hr>
+<h2 id="title-raft-%E5%8D%8F%E8%AE%AE%E7%AE%80%E8%BF%B0category-%E5%90%8E%E7%AB%AFtags-%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7-%E6%95%B0%E6%8D%AE%E5%BA%93date-2019-07-02description-raft-%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7%E7%9B%B8%E5%85%B3%E6%8F%8F%E8%BF%B0">title: raft 协议简述
+category: 后端
+tags: [最终一致性, 数据库]
+date: 2019-07-02
+description: raft 最终一致性相关描述</h2>
+<blockquote>
+<p>raft <a href="https://raft.github.io/">官方博客</a></p>
+</blockquote>
+<h1 id="%E8%83%8C%E6%99%AF">背景</h1>
+<p>分布式存储系统通常要有多个副本来提高整个系统的容错性(fault-tolarence)和可用性。要实现这个目标，就必须要保证多个副本的一致性。</p>
+<h2 id="%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7">数据一致性</h2>
+<p>数据一致性是指多个 server 对存储数据的达成一致的状态。典型的一致性算法当多于一半的 server 可用时进行。以包含 5 个 server 的集群举例，如果有两个 server 宕机，那么一致性算法仍然可以正常工作，但是宕机，如果有超过一半的 server 宕机，则一致性算法则无法工作。</p>
+<p>注: 一个合理的分布式系统，不应该包含偶数个节点，当系统恰好分裂为一半时， majority-vote 会无法收敛。</p>
+<p>每个 server 包含一个状态机和命令日志。状态机是我们用来达成高容错性的组件，与其的交互应该是输出唯一结果，可靠的，即使当少部分 server 发生宕机，仍能正常工作。每个状态机从日志中读取命令。
+一致性算法的目的在于使各个 server 上的命令日志达成一致。以 <code>set x 3</code> 这个命令为例，一致性算法必须保证所有的状态机都将 <code>set x 3</code> 作为第 n 个操作，不能出现状态机第 n 个操作不一致的情况。由此达成的结论是，所有的状态机都执行相同的命令序列，产生相同的数据，并达到相同的状态。</p>
+<h1 id="Raft-%E5%8D%8F%E8%AE%AE">Raft 协议</h1>
+<p>Raft 协议从多副本状态机出发，解决多副本一致性的问题。</p>
+<h2 id="%E5%A4%9A%E5%89%AF%E6%9C%AC%E7%8A%B6%E6%80%81%E6%9C%BA">多副本状态机</h2>
+<p>多副本状态机用于分布式系统中的容错问题的多样性。例如，大规模分布式系统都有一个 leader,(GFS, HDFS 和 RAMCloud), 通常使用单独的多副本状态机来管理 leader election 和 保存配置信息(以防 leader 宕机)。多副本状态机的是先有 Chubby 和 ZooKeeper.</p>
+<p>多副本状态机典型的实现有使用多副本日志。如下图</p>
+<p><img src="/image/raft_replicated_state_machine.png" alt="raft_replicated_state_machine"></p>
+<p>每个 server 保留一份按照时序记录的命令日志。每份日志保留维护相同的命令序列，状态机从命令日志获取命令序列进行处理，由于状态机的算法是确定的，所以每个 server 上的状态机的应到相同的状态，并有相同的输出。
+一致性算法的目的在于保持多个日志副本的一致性。server 上的一致性模块接受从 client 端发来的命令填追加到日志，与其他 server 上的一致性模块进行通信确保即使当部分 server 宕机，其他副本最终保存的是相同时序的命令日志。一旦命令被正确复制，其他 server 将按照顺序执行日志中的命令，并将输出返回到 client 端。最终的结果时，整个集群对外表现为一个单一，高度可靠的状态机。</p>
+<p>在实际生产中使用一致性算法时，有如下要求</p>
+<h3 id="%E5%AE%89%E5%85%A8%E6%80%A7">安全性</h3>
+<p>在任何复杂的情况都从不返回错误的结果，包括不限于网络延迟，集群隔离，丢包，重写，拓扑重排。</p>
+<h3 id="%E9%AB%98%E5%8F%AF%E7%94%A8%E6%80%A7">高可用性</h3>
+<p>一致性组件要保证当集群中的任意大多数 server 正常运行并互相之间能够通讯时保障可用。例如，一个有 5 个 server 的集群可以接受任意 2 个 server 的宕机。这里宕机的 server 可在之后恢复正常后再重新加入集群中。</p>
+<h3 id="%E4%B8%8D%E4%BE%9D%E8%B5%96%E8%AE%A1%E6%97%B6">不依赖计时</h3>
+<p>一致性算法不依赖计时来保证多个副本的最终一致性。但是错误的时钟和极端的消息延迟会影响，这两个因素也会导致可用性问题。</p>
+<h3 id="%E5%A4%9A%E6%95%B0%E6%8A%95%E7%A5%A8">多数投票</h3>
+<p>少数 server 执行命令较慢时不影响整个集群的性能。</p>
+<p><s>难得有闲下来的时候</s>z</p>
+
+    </body>
+    </html>
