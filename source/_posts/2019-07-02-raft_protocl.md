@@ -27,7 +27,7 @@ Raft 协议从多副本状态机出发，解决多副本一致性的问题。
 
 ## 多副本状态机
 
-多副本状态机用于分布式系统中的容错问题的多样性。例如，大规模分布式系统都有一个 leader,(GFS, HDFS 和 RAMCloud), 通常使用单独的多副本状态机来管理 leader election 和 保存配置信息(以防 leader 宕机)。多副本状态机的是先有 Chubby 和 ZooKeeper.
+多副本状态机用于解决各种各样的分布式系统的容错问题。例如，大规模分布式系统都有一个 leader,(GFS, HDFS 和 RAMCloud), 通常使用单独的多副本状态机来管理 leader election 和 保存配置信息(以防 leader 宕机)。多副本状态机的是先有 Chubby 和 ZooKeeper.
 
 多副本状态机典型的实现有使用多副本日志。如下图
 
