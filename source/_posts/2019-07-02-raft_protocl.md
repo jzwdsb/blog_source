@@ -76,5 +76,4 @@ Raft 一致性算法在存在 Leader 的背景下，将一致性问题分解为�
 
 在 cluster 处于正常的状态中时，只会存在一个正常的 leader, 其余所有节点都为 follower. follower 只会被动地从 leader 或者 candidate 接受信息并做相应。leader 为所有 client 请求的入口(如果 client 向一个 follower 发送请求，则会被 follower 重定向至 leader). candidate 仅当 leader 不存在时才出现，用于选举一个新的 leader.
 
-
 整天摸鱼，我要被开了━((*′д｀)爻(′д｀*))━!!!!
