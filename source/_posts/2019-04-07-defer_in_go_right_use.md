@@ -28,7 +28,7 @@ for i := start; i < end; i += step {
 
 ```golang
 for i := start; i < end; i += step {
-    //some resourse as file 
+    //some resourse as file
     close(file)
 }
 ```
