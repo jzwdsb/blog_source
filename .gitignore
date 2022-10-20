@@ -6,6 +6,7 @@ node_modules/
 public/
 .deploy*/
 _multiconfig.yml
+.deploy_git
 *~
 .vscode/
 source/_posts/_*
