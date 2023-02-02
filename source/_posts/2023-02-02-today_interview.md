@@ -11,7 +11,7 @@ It's a startup in Japan, I don't know how can they pay me. And I don't think I'l
 
 I didn't spend too much time introducing my experience and project, He directly asked me some very open technical questions. I didn't answer them very well. But he said perfect every time I answered. Maybe he was just trying to be polite and make me comfortable
 
-here is the list of technical questions e:
+here is the list of technical questions:
 
 1. what is the advantage and disadvantages of docker and Kubernetes?
 I took some time to think about it, So he changed the question to why do we need docker?
