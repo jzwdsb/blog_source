@@ -1,8 +1,8 @@
 ---
-title: learn path
+title: learning path
 category: 杂记
 date: 2023-01-30
-description: learn path
+description: learning path, still organizing and thinking.
 ---
 
 AWS/GCP -> SAA/SAP certificate -> solution architect
