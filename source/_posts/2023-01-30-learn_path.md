@@ -7,7 +7,7 @@ description: learning path, still organizing and thinking.
 
 AWS/GCP -> SAA/SAP certificate -> solution architect
 frontend -> full stack
-rust -> low-level engineer
+rust -> infrastructure engineer or smart contract on blockchain
 data science -> data engineer
 unreal engine and unity -> game development
 
